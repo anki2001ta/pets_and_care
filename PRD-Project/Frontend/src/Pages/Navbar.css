@@ -1,0 +1,34 @@
+.nav>Box{
+    height: 85px;
+    background-color: #f7c719;
+    display: flex;
+    
+}
+
+.nav_barl{
+    /* border:1px solid red; */
+    display:flex;
+   margin-left: 40px;
+}
+.nav_data{
+    display:flex;
+    gap:25px;
+    
+    justify-content: center;
+    align-items: center;
+    font-style: Sans-serif ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+
+
+.nav_barR{
+    /* border:1px solid rgb(0, 0, 128); */
+    display: flex;
+    gap:80px
+}
+#contact{
+    line-height:12px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+ 
