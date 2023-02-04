@@ -72,7 +72,7 @@ import {
     );
   };
   
-  export default function LargeWithNewsletter() {
+  export default function Footer() {
     return (
       <Box
         bg={"#f7c719"}
@@ -83,7 +83,7 @@ import {
             spacing={8}>
             <Stack spacing={4}>
               <Box>
-             <img  style={{height:"210px"}} src={logo} alt="" />
+             <img  style={{height:"150px",marginRight:"-20px"}} src={logo} alt="" />
               </Box>
               <Text fontSize={'sm'}>
                 <Center>
