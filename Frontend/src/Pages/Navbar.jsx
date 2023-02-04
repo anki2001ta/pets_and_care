@@ -27,17 +27,17 @@ const handledrawer=()=>{
         <DrawerContent>
           
           <DrawerBody p={"0px"}>
-            <Box bgColor="#f7c719">
+            <Box bgColor="#f7c719" backdropFilter={"blur(5px)"}>
             <Box  marginLeft={"20px"} fontSize={"25px"} ><GrClose onClick={onClose} /></Box>
             </Box>
           <Box ref={refer} h={"450px"}  bgColor="#f7c719"  opacity={1}>
             
-            <Box bgColor="transparent" backdropFilter={"blur(5px)"}  h={"100%"} p={"50px"}>
+            <Box bgColor="transparent"   h={"100%"} p={"50px"}>
               <Center>
                <input type="text" placeholder='Search pets,products here' id="input"/>
                </Center>
               
-               <img src={cat} style={{marginLeft:"-50px", width:"350px",height:"350px", marginBottom:"170px"}}/>
+               <img src={cat} style={{marginLeft:"-50px", width:"350px",height:"300px", marginBottom:"170px"}}/>
               
             </Box>
             
