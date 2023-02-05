@@ -13,7 +13,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import { Box } from '@chakra-ui/react'
 export default function Autocrausel() {
   return (
-    <Box mt={"10px"}>
+    <Box mt={"10px"} >
       <Swiper
      
      
@@ -28,17 +28,17 @@ export default function Autocrausel() {
         //   clickable: true,
         // }}
         navigation={false}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay]}
         className="mySwiper"
       >
         <SwiperSlide >
-           <img  style={{width:"98%",margin:"auto"}} src="https://cdn.shopify.com/s/files/1/1199/8502/files/walking_essential_4_1920x.png?v=1669010018" alt="" />
+           <img   src="https://cdn.shopify.com/s/files/1/1199/8502/files/walking_essential_4_1920x.png?v=1669010018" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-        <img style={{width:"98%",margin:"auto"}} src="https://cdn.shopify.com/s/files/1/1199/8502/files/tags_banner_1920x.png?v=1671707208"></img>
+        <img  src="https://cdn.shopify.com/s/files/1/1199/8502/files/tags_banner_1920x.png?v=1671707208"></img>
         </SwiperSlide>
         <SwiperSlide>
-        <img   src="https://cdn.shopify.com/s/files/1/1199/8502/files/whiskas_banner_1920x.png?v=1671598548"></img> </SwiperSlide>
+        <img  style={{borderRadius:"5px"}} src="https://cdn.shopify.com/s/files/1/1199/8502/files/whiskas_banner_1920x.png?v=1671598548"></img> </SwiperSlide>
         <SwiperSlide>
         <img   src="https://cdn.shopify.com/s/files/1/1199/8502/files/Bed_Banner_1.jpg?v=1667887437"></img>
         </SwiperSlide>

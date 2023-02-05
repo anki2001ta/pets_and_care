@@ -19,7 +19,8 @@ const handledrawer=()=>{
 }
 
   return (
-    <Flex className='nav2' justifyContent={"space-around"} bgColor={"#f7c719"} h={"85px"}>
+    <Box >
+    <Box className='nav2' justifyContent={"space-around"} bgColor={"#f7c719"} h={"85px"} display={"flex"}  color="white">
     
         <Drawer id="drawer" placement={"top"} onClose={onClose} isOpen={isOpen} ref={refer}  >
       
@@ -63,7 +64,7 @@ const handledrawer=()=>{
         <Center>
         <Box className='logo2' pt={5} pb={5}>
            
-           <img style={{height:"60px",width:"220px"}} src={logo} alt="" />
+           <img style={{height:"60px",width:"220px",marginRight:"90px"}} src={logo} alt="" />
           
         </Box>
         </Center>
@@ -95,7 +96,8 @@ const handledrawer=()=>{
       </Box>
       </Center>
     
-    </Flex>
+    </Box>
+    </Box>
   )
 }
 
