@@ -1,8 +1,11 @@
 .nav{
     height: 85px;
-    background-color: #f7c719;
+    background-color:#02172e;
     display: flex;
     gap:190px;
+    position: fixed;
+    top: 0;
+    color:white
     
 }
 
@@ -37,6 +40,7 @@
 #contact{
     line-height:12px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   
 }
 #drawer{
   color-scheme: #f7c719;
@@ -48,3 +52,4 @@
     align-items: center;
     
  }
+ /*  #f7c719 */

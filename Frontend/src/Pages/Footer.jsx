@@ -83,7 +83,7 @@ import {
             spacing={8}>
             <Stack spacing={4}>
               <Box>
-             <img  style={{height:"150px",marginRight:"-20px"}} src={logo} alt="" />
+             <img  style={{height:"100px",marginRight:"-20px",width:"250px"}} src={logo} alt="" />
               </Box>
               <Text fontSize={'sm'}>
                 <Center>
@@ -130,7 +130,7 @@ import {
                   }}
                 />
                 <IconButton
-                  bg={useColorModeValue('green.400', 'green.800')}
+                  bg={useColorModeValue('black', 'black')}
                   color={useColorModeValue('white', 'gray.800')}
                   _hover={{
                     bg: 'green.600',
