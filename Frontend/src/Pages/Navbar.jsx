@@ -7,6 +7,7 @@ import { GrClose} from "react-icons/gr"
 import { GoPerson} from "react-icons/go"
 import { useRef } from 'react'
 import cat from "../Resources/cutecat.jpg"
+import Footer from './Footer'
 //import dog from"../Resources/dogi.png"
 
 const Navbar = () => {
@@ -97,6 +98,7 @@ const handledrawer=()=>{
       </Center>
     
     </Box>
+   
     </Box>
   )
 }

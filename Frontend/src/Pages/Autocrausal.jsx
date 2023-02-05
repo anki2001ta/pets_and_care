@@ -32,15 +32,15 @@ export default function Autocrausel() {
         className="mySwiper"
       >
         <SwiperSlide >
-           <img   src="https://cdn.shopify.com/s/files/1/1199/8502/files/walking_essential_4_1920x.png?v=1669010018" alt="" />
+           <img className="auto_img"  src="https://cdn.shopify.com/s/files/1/1199/8502/files/walking_essential_4_1920x.png?v=1669010018" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-        <img  src="https://cdn.shopify.com/s/files/1/1199/8502/files/tags_banner_1920x.png?v=1671707208"></img>
+        <img className="auto_img"  src="https://cdn.shopify.com/s/files/1/1199/8502/files/tags_banner_1920x.png?v=1671707208"></img>
         </SwiperSlide>
         <SwiperSlide>
-        <img  style={{borderRadius:"5px"}} src="https://cdn.shopify.com/s/files/1/1199/8502/files/whiskas_banner_1920x.png?v=1671598548"></img> </SwiperSlide>
+        <img className="auto_img"  style={{borderRadius:"5px"}} src="https://cdn.shopify.com/s/files/1/1199/8502/files/whiskas_banner_1920x.png?v=1671598548"></img> </SwiperSlide>
         <SwiperSlide>
-        <img   src="https://cdn.shopify.com/s/files/1/1199/8502/files/Bed_Banner_1.jpg?v=1667887437"></img>
+        <img  className="auto_img"  src="https://cdn.shopify.com/s/files/1/1199/8502/files/Bed_Banner_1.jpg?v=1667887437"></img>
         </SwiperSlide>
         
         
