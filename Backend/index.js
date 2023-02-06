@@ -6,8 +6,13 @@ const bcrypt=require("bcrypt");
 const jwt=require("jsonwebtoken");
 const user=require("./Routes/User.route")
 const UserModel=require("./Models/User.model")
+
 const {auth}=require("./Middlewares/Auth.middleware")
-const cors=require("cors")
+const cors=require("cors");
+const  {PetModel, petModel } = require("./Models/Pet.model");
+const { foodModel } = require("./Models/food.model");
+const { careModel } = require("./Models/Care.model");
+const petRoute=require("./Routes/Pets.route")
 const app=express()
 app.use(express.json())
 
@@ -16,10 +21,21 @@ app.use(
         origin:"*"
     })
 )
+app.use("/pets",petRoute)
+
 app.use("/user",user)
-app.get("/",(req,res)=>{
-    console.log("its home page")
+app.get("/",async(req,res)=>{
+  try{
+    await petModel.find();
+    await foodModel.find()
+    await careModel.find()
     res.send("its home page")
+  }
+  catch(er){
+console.log({msg:er})
+  }
+ 
+   
 })
 app.post("/signup",async(req,res)=>{
  try{
