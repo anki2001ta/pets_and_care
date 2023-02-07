@@ -6,7 +6,8 @@ import { FaSearch ,FaShoppingCart} from "react-icons/fa"
 import { GrClose} from "react-icons/gr"
 import { GoPerson} from "react-icons/go"
 import { useRef } from 'react'
-import cat from "../Resources/cutecat.jpg"
+import cat from "../Resources/cutecat.png"
+import dog from"../Resources/dog.png"
 import Footer from './Footer'
 //import dog from"../Resources/dogi.png"
 
@@ -30,7 +31,7 @@ const handledrawer=()=>{
           
           <DrawerBody p={"0px"}>
             <Box bgColor="#f7c719" backdropFilter={"blur(5px)"}>
-            <Box  marginLeft={"20px"} fontSize={"25px"} ><GrClose onClick={onClose} /></Box>
+            <Box  marginLeft={"20px"} fontSize={"25px"}><GrClose onClick={onClose} /></Box>
             </Box>
           <Box ref={refer} h={"450px"}  bgColor="#f7c719"  opacity={1}>
             
@@ -38,9 +39,10 @@ const handledrawer=()=>{
               <Center>
                <input type="text" placeholder='Search pets,products here' id="input"/>
                </Center>
-              
-               <img src={cat} style={{marginLeft:"-50px", width:"350px",height:"300px", marginBottom:"170px"}}/>
-              
+              <Flex justifyContent={"space-between"} >
+               <img src={dog} style={{marginLeft:"-60px", width:"420px",height:"320px",marginTop:"74px"}}/>
+               <img src={cat}  style={ {width:"380px",height:"320px",marginTop:"74px"}}/>
+               </Flex>
             </Box>
             
             </Box>
