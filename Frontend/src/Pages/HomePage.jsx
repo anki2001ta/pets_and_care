@@ -1,7 +1,8 @@
 import { Box, Button, Center, Flex, Heading, Text } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
-import Autocrausel from './Autocrausal'
+
 import Cat from './Cat'
+import './Crausal.css'
 import Footer from './Footer'
 import Navbar from './Navbar'
 import { MdOutlinePets } from "react-icons/md"
@@ -14,11 +15,17 @@ import bone from "../Resources/bone.png"
 import sitdog from "../Resources/sitdog.png"
 import fibone from "../Resources/fibone.png"
 import cati from "../Resources/cati.png"
+import parrot from "../Resources/parrot.png"
 import bbirds from "../Resources/bbirds.png"
-import Slider from './customslider'
+import carrot from "../Resources/carrot.png"
+import bunny from "../Resources/bunny.png"
+import Slider, { ProductCarousel } from './customslider'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetfoodlideShowSuccess, GetGROOMSlideShowFailure, GetGROOMSlideShowRequest, GetGROOMSlideShowSuccess } from '../Redux/AppReducer/Action'
 import axios from 'axios'
+import bush from "../Resources/bushes.png"
+
+import Autocrausel from './Autocrausal'
 
 const HomePage = () => {
   const dispatch=useDispatch()
@@ -60,11 +67,11 @@ const foodslider=()=>{
       <Box >
         <Navbar/>
         </Box>
-        {/* <Box  >
-          <Autocrausel/>
-        </Box> */}
+        <Box mt={"10px"}>
+        <Autocrausel/>
+        </Box>
         <Box >
-        <Box width={"98%"}  mt={"50px"}  >
+        <Box width={"98%"}  mt={"50px"} >
           <Center>
           <Flex gap={"5px"}>
             <Center>
@@ -97,7 +104,7 @@ const foodslider=()=>{
                   <img src={bone} style={{width:"50px", opacity:0.5}} alt="" />
                   <div style={{display:"flex",justifyContent:"space-between"}}>
                   <div>
-                  <ul style={{marginLeft:"38px",color:"red"}}>WHY DOGS</ul>
+                  <ul style={{marginLeft:"38px",color:"red"}}>WHY DOGS?</ul>
                   <li>Dogs can read our emotions</li>
                   <li>Dogs Can Make You Happier.</li>
                   <li>Dogs Can Keep You Safe.</li>
@@ -117,7 +124,7 @@ const foodslider=()=>{
                   <img src={fibone} style={{width:"80px", opacity:0.5}} alt="" />
                   <div style={{display:"flex",justifyContent:"space-between"}}>
                   <div>
-                  <ul style={{marginLeft:"38px",color:"red"}}>WHY CATS</ul>
+                  <ul style={{marginLeft:"38px",color:"red"}}>WHY CATS?</ul>
                   <li>Cat has the ability to both calm your nervous system.</li>
                   <li> Cat affectionate with their owners and people they trust.</li>
                   <li>Cats Protect Your Home From Pests.</li>
@@ -152,36 +159,39 @@ const foodslider=()=>{
                   <img src={bbirds} style={{width:"50px", opacity:0.5}} alt="" />
                   <div style={{display:"flex",justifyContent:"space-between"}}>
                   <div>
-                  <ul style={{marginLeft:"38px",color:"red"}}>WHY DOGS</ul>
+                  <ul style={{marginLeft:"38px",color:"red"}}>WHY BIRDS?
+                  </ul>
                   <li>Birds can be A Beautiful Addition to Your Life</li>
                   <li>Low Maintenance Pets. </li>
                   <li>Birds Are Extremely Intelligent, Easy to Train, and Social.</li>
                   </div>
                   <div>
-                  <img src={bbirds}  style={{width:"210px",opacity:0.9}} alt="" />
+                  <img src={parrot}  style={{width:"130px",opacity:0.9}} alt="" />
                   </div>
                   </div>
-                  <p><span style={{color:"red"}}>Shop</span> your favrouite Dog partner from here.</p>
+                  <p><span style={{color:"red",marginTop:"-80px"}}>Shop</span> your favrouite Birds  from here.</p>
                 </div>
               </div>
               <div className='data_pets'>
               
-              <h1>Dogs Are <span style={{color:"red"}}>INCREDIBLE</span></h1>
+              <h1>Rabbits Are <span style={{color:"red"}}>JOYFUL</span></h1>
               <div className='data_fill'>
-                <p>Dogs can be there for you even when people can't. They offer unconditional love, emotional support, and constant cuddles that help stave off social isolation.Be a dog parent and love them like your child.</p>
-                <img src={bone} style={{width:"50px", opacity:0.5}} alt="" />
+                <p>Are rabbits a good pet
+Image result for rabbits as a pet
+Rabbits make great pets. In general rabbits need appropriate housing, exercise, socialisation and a specific diet for good welfare. Some breeds of rabbits, particularly the longer haired rabbits, may require daily grooming.</p>
+                <img src={carrot} style={{width:"50px", opacity:0.5}} alt="" />
                 <div style={{display:"flex",justifyContent:"space-between"}}>
                 <div>
-                <ul style={{marginLeft:"38px",color:"red"}}>WHY DOGS</ul>
-                <li>Dogs can read our emotions</li>
-                <li>Dogs Can Make You Happier.</li>
-                <li>Dogs Can Keep You Safe.</li>
+                <ul style={{marginLeft:"38px",color:"red"}}>WHY RABBITS?</ul>
+                <li>They Have Big Personalities. </li>
+                <li>They're Economic to Keep.</li>
+                <li>They're Good House Pets.</li>
                 </div>
                 <div>
-                <img src={sitdog}  style={{width:"210px",opacity:0.9}} alt="" />
+                <img src={bunny}  style={{width:"210px",opacity:0.9}} alt="" />
                 </div>
                 </div>
-                <p><span style={{color:"red"}}>Shop</span> your favrouite Dog partner from here.</p>
+                <p><span style={{color:"red"}}>Shop</span> your favrouite Bunny partner from here.</p>
               </div>
             </div>
             <div id="rabbits">
@@ -200,7 +210,7 @@ const foodslider=()=>{
 
         </Box>
         {/* product crausal */}
-        <Box mt={"120px"}>
+        <Box mt={"200px"}>
           <Box>
           <Center>
           <Flex gap={"5px"}>
@@ -217,12 +227,12 @@ const foodslider=()=>{
           </Box>
           <Box>
           <Center>
-          <Flex gap={"15px"} mt={"15px"}>
+          <Flex gap={"18px"} mt={"15px"}>
             
-          <Button>Dogs</Button>
-          <Button>Cats</Button>
-          <Button>Birds</Button>
-          <Button>Rabbits</Button>
+          <button style={{color:"#f7c719",fontSize:"15px"}} className="button-89">Dogs</button>
+          <button style={{color:"#f7c719",fontSize:"15px"}}  className="button-89">Cats</button>
+          <button style={{color:"#f7c719",fontSize:"15px"}}  className="button-89">Birds</button>
+          <button style={{color:"#f7c719",fontSize:"15px"}} className="button-89">Rabbits</button>
           
            </Flex>
            </Center>
@@ -230,7 +240,7 @@ const foodslider=()=>{
 
 </Box>
 <Box>
-  <Slider data={groomData}/>
+  <ProductCarousel data={groomData}/>
 </Box>
 
         <Box  width={"98%"} mt={200} >
@@ -279,6 +289,41 @@ const foodslider=()=>{
            </div>
            
         </Box>
+        {/* CARAUSAL 2 */}
+        <Box mt={"200px"}>
+          <Box>
+          <Center>
+          <Flex gap={"5px"}>
+            <Center>
+         
+         < MdOutlinePets/>
+         </Center>
+           <h1 style={{fontFamily:"Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif", fontWeight:"bolder"}}>FEED YOUR PETS</h1>
+           <Center>
+           < MdOutlinePets/>
+           </Center>
+           </Flex>
+           </Center>
+          </Box>
+          <Box>
+          <Center>
+          <Flex gap={"19px"} mt={"15px"}>
+            
+          <button style={{color:"#f7c719",fontSize:"15px"}} className="button-89">Dogs</button>
+          <button style={{color:"#f7c719",fontSize:"15px"}}  className="button-89">Cats</button>
+          <button style={{color:"#f7c719",fontSize:"15px"}}  className="button-89">Birds</button>
+          <button style={{color:"#f7c719",fontSize:"15px"}} className="button-89">Rabbits</button>
+          
+          
+          
+           </Flex>
+           </Center>
+          </Box>
+
+</Box>
+<Box>
+  <ProductCarousel data={foodData}/>
+</Box>
        
         <Box mt={"25px"}>
       <Footer/>
