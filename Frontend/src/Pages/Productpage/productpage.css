@@ -1,0 +1,146 @@
+.Product_page{
+    width:100%;
+    
+    
+}
+.Product_br{
+    width:90%;
+    /* border:2px solid rgb(128, 41, 0); */
+    height:100%;
+    margin:auto;
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+}
+
+.Product_g{
+    /* border:2px solid rgb(0, 26, 128); */
+    width:25%;
+    height:100%
+
+}
+.Product_gr{
+    /* border:2px solid rgb(0, 128, 30); */
+    width:73%;
+    height:100%;
+   
+}
+
+#title{
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(246, 215, 14);
+    /* border:3px solid black */
+}
+.functi{
+   
+    border:1px solid rgb(219, 218, 217);
+    height:160px;
+    width:100%;
+    margin: auto;
+    border-radius: 5%;
+    margin-top: 20px;
+}
+#title2{
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    color: red;
+}
+.button-73 {
+    appearance: none;
+    background-color: #0c0c04;
+    width:90%;
+    border-radius: 40em;
+    border-style: none;
+    box-shadow: #2b2b27 0 -12px 6px inset;
+    box-sizing: border-box;
+    color: #f3ecec;
+    cursor: pointer;
+    display: inline-block;
+
+    font-size: 15px;
+    
+    letter-spacing: -.24px;
+    margin: 0;
+    height: 40px;
+    outline: none;
+    /* padding: 1rem 1.3rem; */
+    quotes: auto;
+    text-align: center;
+    text-decoration: none;
+    transition: all .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 15px;
+    font-weight: 600;
+  }
+  
+  .button-73:hover {
+    background-color: #fddd11;
+    box-shadow: #f88f5a 0 -6px 8px inset;
+    transform: scale(1.0);
+    color:#0c0c04
+  }
+  
+  .button-73:active {
+    transform: scale(1.025);
+  }
+  
+  /* @media (min-width: 768px) {
+    .button-73 {
+      font-size: 1.5rem;
+      padding: .75rem 2rem;
+    }
+  } */
+
+  .product_list{
+    /* border:1px solid red; */
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 26px;
+  }
+  .para p{
+    text-align: left;
+    margin-left: 8px;
+    font-size: bold;
+  }
+
+  /* component button */
+  
+
+
+.button-54 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    width: 98%;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 3px solid;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    background-color: #f3f1e6;
+    margin-top: 8px;
+    color:rgb(56, 55, 55)
+  }
+  
+  .button-54:active {
+    box-shadow: 0px 0px 0px 0px;
+    top: 5px;
+    left: 5px;
+  }
+  
+ .slider_view:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+ }

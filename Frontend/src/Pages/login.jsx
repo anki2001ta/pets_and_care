@@ -105,7 +105,7 @@ export default function Login() {
   };
   return (
     <Box
-    h={"100vh"}
+    h={{md:"100vh",lg:"100vh",base:"100vh"}}
     bgImage="url(https://img.freepik.com/premium-vector/animals-paw-print-pattern_601658-115.jpg?size=626&ext=jpg&ga=GA1.1.479537317.1675179122)"
     bgPos="center"
     bgRepeat="no-repeat"
@@ -116,10 +116,10 @@ export default function Login() {
      <div id="toast"></div>
      <Center>
      
-      <Box mt={"6%"} alignItems={"center"}  justifyContent={"center"}  w={["96%","65%","45%"]} borderRadius="10px">
+      <Box mt={"6%"} alignItems={"center"}  justifyContent={"center"}  w={{md:"100%",lg:"100%",base:"100%"}} borderRadius="10px">
          
         <Box bg="white" p={39} rounded="md" textAlign={"center"} backgroundColor={"transparent"} backdropFilter={"blur(5px)"}>
-          <Heading variant={"solid"} color="black"><MdOutlinePets fontSize={"40px"}/> SIGN IN </Heading>
+          <Heading variant={"solid"} color="black"><MdOutlinePets fontSize={{md:"20px",lg:"40px",base:"8px",sm:"7px"}}/> SIGN IN </Heading>
           <form onSubmit={HandleSubmit}>
             <VStack spacing={4} align="flex-start">
               

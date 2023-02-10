@@ -63,7 +63,7 @@ export default function Signup() {
 
   return (
     <Box
-      h={"100vh"}
+      h={{md:"100vh",lg:"100vh",base:"100vh"}}
       bgImage="url(https://img.freepik.com/premium-vector/animals-paw-print-pattern_601658-115.jpg?size=626&ext=jpg&ga=GA1.1.479537317.1675179122)"
       bgPos="center"
       bgRepeat="no-repeat"
@@ -73,11 +73,12 @@ export default function Signup() {
       <div id="toast"></div>
       <Center>
         <Box
-          mt={"3%"}
+          mt={{md:"0%",lg:"3%",base:"0%"}}
           alignItems={"center"}
           justifyContent={"center"}
-          w={["96%", "65%", "45%"]}
+          w={{md:"100%",lg:"100%",base:"100%"}}
           borderRadius="10px"
+          border="1px solid red"
         >
           <Box
             bg="white"
@@ -88,7 +89,7 @@ export default function Signup() {
             backdropFilter={"blur(5px)"}
           >
             <Heading variant={"solid"} color="black">
-              <MdOutlinePets fontSize={"40px"} />
+              <MdOutlinePets fontSize={{md:"20px",lg:"40px",base:"8px",sm:"7px"}} />
               CREATE ACCOUNT{" "}
             </Heading>
             <form onSubmit={HandleSubmit}>
@@ -163,7 +164,7 @@ export default function Signup() {
                   </Text>
                 </Box>
                 <Box alignSelf="center">
-                  <Text variant={"outline"} fontSize={"17px"}>
+                  <Text variant={"outline"} fontSize={{md:"15px",lg:"17px",base:"12px"}}>
                     <b>
                       {" "}
                       By signing up, you agree to the Pets&Care Terms of Use and
