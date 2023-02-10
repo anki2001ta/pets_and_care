@@ -1,42 +1,47 @@
 const express=require("express")
 const env=require("dotenv")
 env.config()
-const connection =require("./Configs/db")
+const connectDB =require("./Config/db")
 const bcrypt=require("bcrypt");
 const jwt=require("jsonwebtoken");
 const user=require("./Routes/User.route")
 const UserModel=require("./Models/User.model")
-
 const {auth}=require("./Middlewares/Auth.middleware")
 const cors=require("cors");
-const  {PetModel, petModel } = require("./Models/Pet.model");
-const { foodModel } = require("./Models/food.model");
-const { careModel } = require("./Models/Care.model");
 const petRoute=require("./Routes/Pets.route")
 const app=express()
-app.use(express.json())
 
+
+app.use(express.json())
 app.use(
     cors({
         origin:"*"
     })
 )
-app.use("/pets",petRoute)
-
 app.use("/user",user)
-app.get("/",async(req,res)=>{
-  try{
-    await petModel.find();
-    await foodModel.find()
-    await careModel.find()
-    res.send("its home page")
-  }
-  catch(er){
-console.log({msg:er})
-  }
- 
-   
-})
+app.use("/pets",petRoute)
+app.use(auth)
+
+
+
+// app.get("/",async(req,res)=>{
+//   try{
+//     await petModel.find();
+//     await foodModel.find()
+//     await careModel.find()
+//     res.send("Its main page")
+//   }
+//   catch(er){
+// console.log({msg:er})
+//   } 
+// });
+
+
+
+
+
+
+
 app.post("/signup",async(req,res)=>{
  try{
  let data=await UserModel.find({email:req.body.email});
@@ -60,6 +65,11 @@ app.post("/signup",async(req,res)=>{
     res.status(404).send({ msg: "Failed to create new user" });
  }
 })
+
+
+
+
+
 
 app.post("/login", async (req, res) => {
     try {
@@ -96,12 +106,16 @@ app.post("/login", async (req, res) => {
       res.status(404).send({ msg: "Failed to login" });
     }
   });
+  
 
-  app.use(auth)
 
+
+
+
+//connect database
 app.listen(process.env.port,async()=>{
   try{
-    await connection
+    await connectDB()
     console.log(`Database connected and listening to http://localhost:${process.env.port}`)
   }
   catch(err){
