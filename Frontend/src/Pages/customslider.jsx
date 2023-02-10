@@ -51,7 +51,7 @@ export const ProductCarousel = ({data}) => {
         initialSlide: 0, 
         gap:10,
         autoplay:true,
-        autoplaySpeed:3000,
+        autoplaySpeed:2500,
         responsive: [ 
             { 
                 breakpoint: 1240, 

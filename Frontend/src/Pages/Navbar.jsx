@@ -9,6 +9,7 @@ import { useRef } from 'react'
 import cat from "../Resources/cutecat.png"
 import dog from"../Resources/dog.png"
 import Footer from './Footer'
+import {Link} from "react-router-dom"
 //import dog from"../Resources/dogi.png"
 
 const Navbar = () => {
@@ -55,10 +56,15 @@ const handledrawer=()=>{
         {/* <Box className="nav_barl2"> */}
         <Center>
             <Flex className='nav_data2' gap={25} pt={10} ml={"-8%"} pb={10}>
-           
+           <Link to="/">
             <h2>HOME</h2>
+            </Link>
+            <Link to="/carepage">
             <h2>GROOMING</h2>
+            </Link>
+            <Link to="/foodpage">
             <h2>NURISHMENT</h2>
+            </Link>
             <h2>EXPLORE</h2>
            
             </Flex>
@@ -86,7 +92,9 @@ const handledrawer=()=>{
         <Flex>
            
        <GoPerson/>
+       <Link to="/signup">
        <h1 id="contact" style={{lineHeight:"12px"}}>SignUp</h1>
+       </Link>
        </Flex>
        <FaShoppingCart/>
        </Flex>

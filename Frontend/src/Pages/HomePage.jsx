@@ -1,7 +1,5 @@
 import { Box, Button, Center, Flex, Heading, Text } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
-
-import Cat from './Cat'
 import './Crausal.css'
 import Footer from './Footer'
 import Navbar from './Navbar'
@@ -19,14 +17,40 @@ import parrot from "../Resources/parrot.png"
 import bbirds from "../Resources/bbirds.png"
 import carrot from "../Resources/carrot.png"
 import bunny from "../Resources/bunny.png"
-import Slider, { ProductCarousel } from './customslider'
+import { Link } from 'react-router-dom'
+import  { ProductCarousel } from './customslider'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetfoodlideShowSuccess, GetGROOMSlideShowFailure, GetGROOMSlideShowRequest, GetGROOMSlideShowSuccess } from '../Redux/AppReducer/Action'
 import axios from 'axios'
-import bush from "../Resources/bushes.png"
+
 
 import Autocrausel from './Autocrausal'
 
+const getdatabydog=()=>{
+ return (
+  axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/care/groom?used=Dogs")
+  );
+};
+
+const getdatabycat=()=>{
+  return (
+   axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/care/groom?used=Cats")
+   );
+ };
+
+ const getdatabybird=()=>{
+  return (
+   axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/care/groom?used=Birds")
+   );
+ };
+
+ const getdatabyrabbit=()=>{
+  return (
+   axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/care/groom?used=Rabbits")
+   );
+ };
+
+ 
 const HomePage = () => {
   const dispatch=useDispatch()
 const foodData=useSelector((store)=>store.FoodSlideShow)
@@ -36,9 +60,11 @@ const foodData=useSelector((store)=>store.FoodSlideShow)
   // grooming
   const groomslider=()=>{
     dispatch(GetGROOMSlideShowRequest())
-    axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/all/care")
+    axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/care/groom")
     .then((res)=>{
-      dispatch(GetGROOMSlideShowSuccess(res.data.cares))
+      dispatch(GetGROOMSlideShowSuccess(res.data.caredata))
+      console.log(res.data.caredata
+        )
     })
     .catch((er)=>{
       dispatch(GetGROOMSlideShowFailure())
@@ -47,15 +73,62 @@ const foodData=useSelector((store)=>store.FoodSlideShow)
 // food
 const foodslider=()=>{
   dispatch(GetGROOMSlideShowRequest())
-  axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/all/food")
+  axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/food/feed")
   .then((res)=>{
-    dispatch(GetfoodlideShowSuccess(res.data.foods))
+    dispatch(GetfoodlideShowSuccess(res.data.food_data))
+  })
+  .catch((er)=>{
+    dispatch(GetGROOMSlideShowFailure())
+  })
+};
+
+const handledogdata=()=>{
+  getdatabydog(GetGROOMSlideShowRequest())
+  getdatabydog().then((res)=>{
+    dispatch(GetGROOMSlideShowSuccess(res.data.caredata))
+    console.log(res.data.caredata
+      )
+  })
+  .catch((er)=>{
+    dispatch(GetGROOMSlideShowFailure())
+  })
+};
+
+const handlecatdata=()=>{
+  getdatabycat(GetGROOMSlideShowRequest())
+  getdatabycat().then((res)=>{
+    dispatch(GetGROOMSlideShowSuccess(res.data.caredata))
+    console.log(res.data.caredata
+      )
+  })
+  .catch((er)=>{
+    dispatch(GetGROOMSlideShowFailure())
+  })
+};
+
+const handlebirddata=()=>{
+  getdatabybird(GetGROOMSlideShowRequest())
+  getdatabybird().then((res)=>{
+    dispatch(GetGROOMSlideShowSuccess(res.data.caredata))
+    console.log(res.data.caredata
+      )
+  })
+  .catch((er)=>{
+    dispatch(GetGROOMSlideShowFailure())
+  })
+};
+
+const handlerabbitdata=()=>{
+  getdatabyrabbit(GetGROOMSlideShowRequest())
+  getdatabyrabbit().then((res)=>{
+    dispatch(GetGROOMSlideShowSuccess(res.data.caredata))
+    console.log(res.data.caredata
+      )
   })
   .catch((er)=>{
     dispatch(GetGROOMSlideShowFailure())
   })
 }
-
 
   useEffect(()=>{
     groomslider()
@@ -229,10 +302,12 @@ Rabbits make great pets. In general rabbits need appropriate housing, exercise, 
           <Center>
           <Flex gap={"18px"} mt={"15px"}>
             
-          <button style={{color:"#f7c719",fontSize:"15px"}} className="button-89">Dogs</button>
-          <button style={{color:"#f7c719",fontSize:"15px"}}  className="button-89">Cats</button>
-          <button style={{color:"#f7c719",fontSize:"15px"}}  className="button-89">Birds</button>
-          <button style={{color:"#f7c719",fontSize:"15px"}} className="button-89">Rabbits</button>
+          <button style={{color:"#f7c719",fontSize:"15px"}} className="button-89"
+          
+          onClick={handledogdata}>Dogs</button>
+          <button style={{color:"#f7c719",fontSize:"15px"}}  onClick={handlecatdata} className="button-89">Cats</button>
+          <button style={{color:"#f7c719",fontSize:"15px"}}  onClick={handlebirddata} className="button-89">Birds</button>
+          <button style={{color:"#f7c719",fontSize:"15px"}}  onClick={handlerabbitdata} className="button-89">Rabbits</button>
           
            </Flex>
            </Center>
@@ -240,6 +315,7 @@ Rabbits make great pets. In general rabbits need appropriate housing, exercise, 
 
 </Box>
 <Box>
+  <Link to="/carepage"></Link>
   <ProductCarousel data={groomData}/>
 </Box>
 
@@ -264,22 +340,33 @@ Rabbits make great pets. In general rabbits need appropriate housing, exercise, 
             <div className='prd2'>
             <div>
             <div class="overlay">
+              <Link to="/dogspage">
            <div class="text">CLICK HERE TO BUY YOUR PET DOGS</div>
+           </Link>
              </div>
             </div>
             <div>
             <div class="overlay">
+            <Link to="/catspage">
+
            <div class="text">CLICK HERE TO BUY YOUR PET CATS</div>
+           </Link>
              </div>
             </div>
             <div>
             <div class="overlay">
+            <Link to="/birdspage">
+
            <div class="text">CLICK HERE TO BUY YOUR PET BIRDS</div>
+           </Link>
              </div>
             </div>
             <div>
             <div class="overlay">
+            <Link to="/rabbitspage">
+
            <div class="text">CLICK HERE TO BUY YOUR PET RABBITS</div>
+           </Link>
              </div>
             </div>
             </div>
@@ -322,7 +409,9 @@ Rabbits make great pets. In general rabbits need appropriate housing, exercise, 
 
 </Box>
 <Box>
+  <Link to="/foodpage">
   <ProductCarousel data={foodData}/>
+  </Link>
 </Box>
        
         <Box mt={"25px"}>
