@@ -1,13 +1,36 @@
 const mongoose=require("mongoose");
-const petSchema=mongoose.Schema({
-    url:String,
-    name:String,
-    breed:String,
-    location:String,
-    color:String,
-    price:Number,
-    category:String
+const petdataSchema=mongoose.Schema({
+    url:{
+        type:String,
+        required:[true,"Please Enter product url"]
+    },
+    name:{
+        type:String,
+        required:[true,"Please Enter product name"]
+    },
+    breed:{
+        type:String,
+        required:[true,"Please Enter product breed"]
+    },
+    color:{
+        type:String,
+        required:[true,"Please Enter product color"]
+    },
+    price:{
+        type:Number,
+        required:[true,"Please Enter product price"]
+    },
+    category:{
+        type:String,
+        required:[true,"Please Enter product category"]
+    },
+    Stock:{
+        type:Number,
+        required:[true,"Please Enter product stocks"],
+        maxLength:[4,"Cannot exceeds 4"],
+        default:1
+    }
 });
 
-const petModel=mongoose.model("petcollection",petSchema)
-module.exports={petModel}
+const petdataModel=mongoose.model("petcollection",petdataSchema)
+module.exports={petdataModel}
