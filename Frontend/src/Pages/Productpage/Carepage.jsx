@@ -1,11 +1,12 @@
-import { Box, Center, Image, Tag, Text } from '@chakra-ui/react'
+import { Box, Center, Image, Stack, Tag, Text } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetProductcatSuccess, GetProductRequest } from '../../Redux/AppReducer/Action'
 import Footer from '../Footer'
 import Navbar from '../Navbar'
-import "./productpage.css"
+import "./productpage.css";
+import { Radio, RadioGroup } from '@chakra-ui/react'
 
 //sorting by asc and desc
 const sortDataByDesc = () => {
@@ -23,6 +24,7 @@ const sortDataByDesc = () => {
 
 const Carepage = () => {
     const dispatch=useDispatch()
+    const [color,setColor]=useState("")
     const [loading,setLoading]=useState(false)
     const catData=useSelector((store)=>store.CatProduct)
 
@@ -31,7 +33,7 @@ const Carepage = () => {
         axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/care/groom")
         .then((res)=>{
             dispatch(GetProductcatSuccess(res.data.caredata))
-            console.log(res.data.caredata)
+            // console.log(res.data.caredata)
         })
     };
 
@@ -40,7 +42,7 @@ const Carepage = () => {
       dispatch(GetProductRequest());
       sortDataByDesc().then((res) => {
         dispatch(GetProductcatSuccess(res.data.caredata));
-        console.log(res.data.caredata);
+        // console.log(res.data.caredata);
       });
     };
   
@@ -48,7 +50,7 @@ const Carepage = () => {
   dispatch(GetProductRequest());
   sortDataByAsc().then((res) => {
   dispatch(GetProductcatSuccess(res.data.caredata));
-  console.log(res.data.caredata);
+  // console.log(res.data.caredata);
   });
   }
   useEffect(()=>{
@@ -67,6 +69,20 @@ const Carepage = () => {
             <button class="button-73" role="button" onClick={handlesortByDesc }>PRICE: HIGH TO LOW</button>
             <button class="button-73" role="button" onClick={handlesortByAsc}>PRICE: LOW TO HIGH</button>
             </div>
+          <RadioGroup onChange={setColor} value={color}>
+      <Stack direction='row'>
+        <Radio value='White'>White</Radio>
+        <Radio value='Black'>Black</Radio>
+        <Radio value='Brown'>Brown</Radio>
+        <Radio value='Red'>Red</Radio>
+        <Radio value='Green'>Green</Radio>
+        <Radio value='Yellow'>Yellow</Radio>
+        <Radio value='Grey'>Grey</Radio>
+        <Radio value='Black'>Black</Radio>
+        <Radio value='Brown'>Brown</Radio>
+
+      </Stack>
+    </RadioGroup>
          </div>
          <div className='Product_gr'>
          <h3 id="title">GROOM ME</h3>

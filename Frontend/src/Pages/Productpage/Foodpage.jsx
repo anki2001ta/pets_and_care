@@ -31,7 +31,7 @@ const Foodspage = () => {
         axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/food/feed")
         .then((res)=>{
             dispatch(GetProductcatSuccess(res.data.food_data))
-            console.log(res.data.food_data)
+            // console.log(res.data.food_data)
         })
     };
 
@@ -39,7 +39,7 @@ const Foodspage = () => {
       dispatch(GetProductRequest());
       sortDataByDesc().then((res) => {
         dispatch(GetProductcatSuccess(res.data.food_data));
-        console.log(res.data.food_data);
+        // console.log(res.data.food_data);
       });
     };
   
@@ -47,7 +47,7 @@ const Foodspage = () => {
   dispatch(GetProductRequest());
   sortDataByAsc().then((res) => {
   dispatch(GetProductcatSuccess(res.data.food_data));
-  console.log(res.data.food_data);
+  // console.log(res.data.food_data);
   });
   }
   useEffect(()=>{
