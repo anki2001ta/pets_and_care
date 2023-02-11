@@ -116,7 +116,7 @@ export default function Login() {
      <div id="toast"></div>
      <Center>
      
-      <Box mt={"6%"} alignItems={"center"}  justifyContent={"center"}  w={{md:"100%",lg:"100%",base:"100%"}} borderRadius="10px">
+      <Box mt={"6%"} alignItems={"center"}  justifyContent={"center"}  w={{md:"100%",lg:"50%",base:"100%"}} borderRadius="10px">
          
         <Box bg="white" p={39} rounded="md" textAlign={"center"} backgroundColor={"transparent"} backdropFilter={"blur(5px)"}>
           <Heading variant={"solid"} color="black"><MdOutlinePets fontSize={{md:"20px",lg:"40px",base:"8px",sm:"7px"}}/> SIGN IN </Heading>

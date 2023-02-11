@@ -63,8 +63,8 @@ const foodData=useSelector((store)=>store.FoodSlideShow)
     axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/care/groom")
     .then((res)=>{
       dispatch(GetGROOMSlideShowSuccess(res.data.caredata))
-      console.log(res.data.caredata
-        )
+      // console.log(res.data.caredata
+      //   )
     })
     .catch((er)=>{
       dispatch(GetGROOMSlideShowFailure())
@@ -86,8 +86,8 @@ const handledogdata=()=>{
   getdatabydog(GetGROOMSlideShowRequest())
   getdatabydog().then((res)=>{
     dispatch(GetGROOMSlideShowSuccess(res.data.caredata))
-    console.log(res.data.caredata
-      )
+    // console.log(res.data.caredata
+    //   )
   })
   .catch((er)=>{
     dispatch(GetGROOMSlideShowFailure())
@@ -98,8 +98,8 @@ const handlecatdata=()=>{
   getdatabycat(GetGROOMSlideShowRequest())
   getdatabycat().then((res)=>{
     dispatch(GetGROOMSlideShowSuccess(res.data.caredata))
-    console.log(res.data.caredata
-      )
+    // console.log(res.data.caredata
+    //   )
   })
   .catch((er)=>{
     dispatch(GetGROOMSlideShowFailure())
@@ -110,8 +110,8 @@ const handlebirddata=()=>{
   getdatabybird(GetGROOMSlideShowRequest())
   getdatabybird().then((res)=>{
     dispatch(GetGROOMSlideShowSuccess(res.data.caredata))
-    console.log(res.data.caredata
-      )
+    // console.log(res.data.caredata
+    //   )
   })
   .catch((er)=>{
     dispatch(GetGROOMSlideShowFailure())
@@ -122,8 +122,8 @@ const handlerabbitdata=()=>{
   getdatabyrabbit(GetGROOMSlideShowRequest())
   getdatabyrabbit().then((res)=>{
     dispatch(GetGROOMSlideShowSuccess(res.data.caredata))
-    console.log(res.data.caredata
-      )
+    // console.log(res.data.caredata
+    //   )
   })
   .catch((er)=>{
     dispatch(GetGROOMSlideShowFailure())
@@ -340,14 +340,14 @@ Rabbits make great pets. In general rabbits need appropriate housing, exercise, 
             <div className='prd2'>
             <div>
             <div class="overlay">
-              <Link to="/dogspage">
+              <Link to="/dogs">
            <div class="text">CLICK HERE TO BUY YOUR PET DOGS</div>
            </Link>
              </div>
             </div>
             <div>
             <div class="overlay">
-            <Link to="/catspage">
+            <Link to="/cats">
 
            <div class="text">CLICK HERE TO BUY YOUR PET CATS</div>
            </Link>
@@ -355,7 +355,7 @@ Rabbits make great pets. In general rabbits need appropriate housing, exercise, 
             </div>
             <div>
             <div class="overlay">
-            <Link to="/birdspage">
+            <Link to="/birds">
 
            <div class="text">CLICK HERE TO BUY YOUR PET BIRDS</div>
            </Link>
@@ -363,7 +363,7 @@ Rabbits make great pets. In general rabbits need appropriate housing, exercise, 
             </div>
             <div>
             <div class="overlay">
-            <Link to="/rabbitspage">
+            <Link to="/rabbits">
 
            <div class="text">CLICK HERE TO BUY YOUR PET RABBITS</div>
            </Link>

@@ -76,7 +76,7 @@ export default function Signup() {
           mt={{md:"0%",lg:"3%",base:"0%"}}
           alignItems={"center"}
           justifyContent={"center"}
-          w={{md:"100%",lg:"100%",base:"100%"}}
+          w={{md:"100%",lg:"50%",base:"100%"}}
           borderRadius="10px"
           border="1px solid red"
         >
