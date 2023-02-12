@@ -1,4 +1,4 @@
-import { Box, Center, Image, Radio, RadioGroup, Stack, Tag, Text } from '@chakra-ui/react'
+import { Box, Image, Radio, RadioGroup, Stack } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -30,8 +30,7 @@ const Petspage = () => {
     const load =useSelector((store)=>store.isLoading)
     const {pets}=useParams()
     const color=searchParams.get("color");
-    console.log(color)
-    //getting default data
+   
     const catproduct=()=>{
         dispatch( GetProductRequest())
         axios.get(`https://breakable-trench-coat-deer.cyclic.app/pets/${pets}`)
@@ -77,16 +76,22 @@ dispatch(GetProductcatSuccess(res.data.petbase));
         <div><Navbar/></div>
         <div className='Product_br'>
          <div className='Product_g'>
-            <h3 id="title">CATTIES HERE</h3>
+            <h3 id="title">SORTING</h3>
             <div className='functi'>
             <h2 id="title2">SORT BY PRICES</h2>
             <button class="button-73" role="button" 
            onClick={handlesortByDesc}>PRICE: HIGH TO LOW</button>
             <button class="button-73" role="button" onClick={handlesortByAsc}>PRICE: LOW TO HIGH</button>
             </div>
+            <h3 id="title" style={{marginTop:"15px"}}>FILTERATION</h3>
+            <div className='radio'> 
+            <h2 id="title2">FILTER BY COLOR</h2>
+            <div className='radio_gp'>
             <RadioGroup onChange={setColor} value={clor}>
-      <Stack direction='column'>
-        <Radio value='White'>White</Radio>
+      <Stack direction='column' gap={"5px"}>
+        <Radio value='White'>
+          White
+        </Radio>
         <Radio value='Black'>Black</Radio>
         <Radio value='Brown'>Brown</Radio>
         <Radio value='Red'>Red</Radio>
@@ -98,6 +103,8 @@ dispatch(GetProductcatSuccess(res.data.petbase));
 
       </Stack>
     </RadioGroup>
+    </div>
+    </div>
          </div>
          <div className='Product_gr'>
          <h3 id="title">PICK ME</h3>
