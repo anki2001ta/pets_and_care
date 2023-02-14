@@ -21,6 +21,13 @@ export const GetfoodlideShowSuccess = (payload) =>{
     }
 }
 
+export const PostUserSuccess = (payload) =>{
+    return {
+        type : types.GET_User_SUCCESS,
+        payload
+    }
+}
+
 export const GetGROOMSlideShowFailure = ( ) =>{
     return {
         type : types.GET_SLIDESHOW_FAILURE

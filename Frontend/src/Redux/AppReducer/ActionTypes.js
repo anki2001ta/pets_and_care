@@ -12,3 +12,5 @@ export const GET_Product_dog_SUCCESS = 'GET_Product_dog_SUCCESS';
 export const GET_Product_bird_SUCCESS = 'GET_Product_bird_SUCCESS';
 //rabbit
 export const GET_Product_rabbit_SUCCESS = 'GET_Product_rabbit_SUCCESS';
+
+export const GET_User_SUCCESS = 'GET_User_SUCCESS';

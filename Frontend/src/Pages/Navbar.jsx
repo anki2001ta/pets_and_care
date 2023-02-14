@@ -1,4 +1,4 @@
-import { Box, Center, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Flex, useDisclosure } from '@chakra-ui/react'
+import { Avatar, Box, Button, Center, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Flex, Menu, MenuButton, MenuDivider, MenuItem, MenuList, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 import "./Navbar.css"
 import logo from"../Resources/petlogo.png"
@@ -10,10 +10,12 @@ import cat from "../Resources/cutecat.png"
 import dog from"../Resources/dog.png"
 import Footer from './Footer'
 import {Link} from "react-router-dom"
+import { useSelector } from 'react-redux'
 //import dog from"../Resources/dogi.png"
 
 const Navbar = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const user=useSelector((store)=>store.user);
     const refer=useRef()
 
 const handledrawer=()=>{
@@ -91,10 +93,52 @@ const handledrawer=()=>{
         
         <Flex>
            
-       <GoPerson/>
+       {/* <GoPerson/>
        <Link to="/signup">
        <h1 id="contact" style={{lineHeight:"12px"}}>SignUp</h1>
-       </Link>
+       </Link> */}
+      
+        <Menu
+        >
+          
+                <MenuButton
+                  as={Button}
+                  rounded={'full'}
+                  variant={'link'}
+                  cursor={'pointer'}
+                  
+                  minW={0}
+                  zIndex={2000}>
+                  <Avatar
+                    size={"xs"}
+                    
+                    src={'https://w7.pngwing.com/pngs/754/2/png-transparent-samsung-galaxy-a8-a8-user-login-telephone-avatar-pawn-blue-angle-sphere-thumbnail.png'}
+                  />
+                </MenuButton>
+                <MenuList alignItems={'center'}
+               zIndex={100} >
+                <Box bgColor={"#f7c719"}
+                color={"black"}>
+                
+                  <br />
+                  <Center>
+                    <Avatar
+                      size={'xl'}
+                      src={GoPerson}
+                    />
+                  </Center>
+                  <br />
+                  <Center>
+                    <p>{user.name==""?"Guest":user.name}</p>
+                  </Center>
+                  <br />
+                  <MenuDivider />
+                  <MenuItem>My Account</MenuItem>
+                  <MenuItem >Logout</MenuItem>
+                  </Box>
+                </MenuList>
+               
+              </Menu>
        </Flex>
        <FaShoppingCart/>
        </Flex>
