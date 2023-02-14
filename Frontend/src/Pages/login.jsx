@@ -12,18 +12,19 @@ import {
 } from "@chakra-ui/react";
 import { useToast } from '@chakra-ui/react'
 import { MdOutlinePets} from "react-icons/md";
-import {  useContext, useState } from "react";
+import {useState } from "react";
 import "./toast.css"
-
 import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { useFire } from "../Components/firebaseconfig";
-
+import {useDispatch} from "react-redux"
+import { PostUserSuccess } from "../Redux/AppReducer/Action";
 
 export default function Login() {
-  const { HandleFacebook, HandleGoogle, HandleSignout } = useFire();
+  const dispatch=useDispatch();
+  const { HandleFacebook, HandleGoogle} = useFire();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigateUser=useNavigate()
@@ -61,6 +62,7 @@ export default function Login() {
           isClosable: true,
         })}
       if(res.data.administration==false && res.data.token!==""){
+        dispatch(PostUserSuccess({name:res.data.displayName}))
         navigateUser("/")
       }
       else if(res.data.administration==true && res.data.token!==""){

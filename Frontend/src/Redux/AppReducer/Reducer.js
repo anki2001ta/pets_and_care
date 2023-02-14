@@ -7,6 +7,7 @@ const InitialData = {
     BirdProduct:[],
     RabbitProduct:[],
     isLoading : false,
+    user:{},
     isError : false
 }
 
@@ -103,6 +104,13 @@ export default function Reducer (state=InitialData, action) {
                 GROOMSlideShow : [ ],
                 FoodSlideShow:[],
                 isError : true
+            }
+        }
+
+        case types.GET_User_SUCCESS:{
+            return {
+                ...state,
+                user:payload
             }
         }
 
