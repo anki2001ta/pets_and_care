@@ -63,6 +63,13 @@ export const GetProductbirdSuccess = (payload) =>{
     }
 }
 
+export const GetSearchSuccess = (payload) =>{
+    return {
+        type : types.GET_SEARCH_SUCCESS,
+        payload
+    }
+}
+
 export const GetProductrabbitSuccess = (payload) =>{
     return {
         type : types.GET_Product_rabbit_SUCCESS,

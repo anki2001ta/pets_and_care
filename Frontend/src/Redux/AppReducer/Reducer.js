@@ -8,6 +8,7 @@ const InitialData = {
     RabbitProduct:[],
     isLoading : false,
     user:{},
+    searchData:[],
     isError : false
 }
 
@@ -113,7 +114,13 @@ export default function Reducer (state=InitialData, action) {
                 user:payload
             }
         }
-
+        ////SEARCH///
+        case types.GET_SEARCH_SUCCESS: {
+            return {
+                ...state,
+                searchData:payload,
+            }
+        }
         default :
         return state
     }
