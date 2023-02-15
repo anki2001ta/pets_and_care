@@ -46,13 +46,35 @@
   color-scheme: #f7c719;
  }
  #input{
-    text-indent: 10px;
+    text-indent: 20px;
     width:50%;
-    height:50px;
+    height:40px;
     align-items: center;
+    border-radius: 30px;
+    color: #f7c719;
+    border:4px solid rgb(237, 204, 14)
     
+ }
+ 
+ .username_data{
+    font-size: 18px;
+    font-weight: 600;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+
  }
 .menu_color{
     background-color: #f7c719;
 }
  /*  #f7c719 */
+ #mobile{
+    color: beige;
+    visibility: hidden;
+ }
+
+ @media all and (max-width:650px) and (min-width:200px){
+ #mobile{
+    visibility:visible;
+ }
+
+
+}
