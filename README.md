@@ -111,7 +111,7 @@ Technologies used in the project:
 
 Clone the project
 ```bash
-git clone
+git clone https://github.com/anki2001ta/pets_and_care.git
 ```
 ## Client-side usage
 
