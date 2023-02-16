@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-       {size>= 626 ? <Navbar/> : <Mobile/>}
+       
      <AllRoutes/>
     </div>
   );

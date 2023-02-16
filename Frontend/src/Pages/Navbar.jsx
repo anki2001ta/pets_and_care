@@ -216,7 +216,9 @@ const Navbar = () => {
                             bgColor={"blackAlpha.100"}
                             color={"black"}
                           >
+                            <Link to="/signup">
                             Sign up
+                            </Link>
                           </MenuItem>
                           <MenuItem
                             fontWeight={600}

@@ -57,7 +57,7 @@ const Foodspage = () => {
   },[])
   return (
     <div className='Product_page'>
-        {/* <div><Navbar/></div> */}
+        <div><Navbar/></div>
         <div className='Product_br'>
          <div className='Product_g'>
             <h3 id="title">PETS FOOD </h3>
