@@ -138,7 +138,7 @@ const handlerabbitdata=()=>{
   return (
     <Box className='home_wrap' id="home" >
       <Box >
-        {/* <Navbar/> */}
+        <Navbar/>
         </Box>
         <Box mt={"10px"}>
         <Autocrausel/>

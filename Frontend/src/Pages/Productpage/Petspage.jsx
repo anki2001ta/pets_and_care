@@ -76,7 +76,7 @@ const Petspage = () => {
   return (
     <Box className="Product_page">
       <Box>
-        {/* <Navbar /> */}
+        <Navbar />
       </Box>
       <Box className="Product_br">
         <Box className="Product_g">
