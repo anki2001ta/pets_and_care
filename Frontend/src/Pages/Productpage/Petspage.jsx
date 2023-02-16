@@ -2,7 +2,7 @@ import { Box, Button, Center, Flex, Image, Radio, RadioGroup, Stack } from "@cha
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import {
   GetProductcatSuccess,
   GetProductRequest,
@@ -22,7 +22,7 @@ const Petspage = () => {
   const catData = useSelector((store) => store.CatProduct);
   const load = useSelector((store) => store.isLoading);
   const { pets } = useParams();
-
+ const Navigate=useNavigate()
   const sortDataByDesc = () => {
     setSort("desc");
   };
@@ -52,6 +52,15 @@ const Petspage = () => {
     }
   }
 
+  const handleSinglepage=(id)=>{
+    try {
+      Navigate(`/individualpage/${id}`)
+    } catch (error) {
+      console.log(error)
+    }
+    
+  }
+
   useEffect(() => {
     const params = {
       sortBy: sort,
@@ -67,7 +76,7 @@ const Petspage = () => {
   return (
     <Box className="Product_page">
       <Box>
-        <Navbar />
+        {/* <Navbar /> */}
       </Box>
       <Box className="Product_br">
         <Box className="Product_g">
@@ -201,7 +210,10 @@ const Petspage = () => {
                       </span>{" "}
                       Rs{item.price}
                     </p>
-                    <button className="button-54">VIEW ME</button>
+                  
+                    <button className="button-54" onClick={()=>handleSinglepage(item._id)}>VIEW ME</button>
+                    
+                    
                   </Box>
                 ))
               )}

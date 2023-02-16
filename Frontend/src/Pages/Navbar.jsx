@@ -37,7 +37,7 @@ const Navbar = () => {
   let userInput = useRef();
   const dispatch = useDispatch();
   const searchData = useSelector((store) => store.searchData) || [];
-  console.log(userInput.current);
+  // console.log(userInput.current);
   const debounced = useDebouncedCallback(() => {
     axios
       .get(
@@ -96,7 +96,7 @@ const Navbar = () => {
                     <Box
                       bgColor={searchData.length <= 0 ? "#f7c719" : "white"}
                       h={"300px"}
-                      w={"610px"}
+                      w={"700px"}
                       borderRadius={"10px"}
                       overflow={"scroll"}
                       opacity={searchData.length <= 0 ? "0" : "1"}
