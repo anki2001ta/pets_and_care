@@ -10,6 +10,7 @@ import UpperNavbar from "../Pages/Navbar";
 import Carepage from "../Pages/Productpage/Carepage";
 import Foodspage from "../Pages/Productpage/Foodpage";
 import Petspage from "../Pages/Productpage/Petspage";
+import Indiividual from "../Pages/Individualpage/Indiividual";
 
 const AllRoutes = () => {
   return (
@@ -22,6 +23,7 @@ const AllRoutes = () => {
     <Route path="/:pets" element ={<Petspage/>}/>
     <Route path="/carepage" element={<Carepage/>}/>
     <Route path="/foodpage" element={<Foodspage/>}/>
+    <Route path="/individualpage/:id" element={<Indiividual/>}/>
     </Routes>
   )
 }
