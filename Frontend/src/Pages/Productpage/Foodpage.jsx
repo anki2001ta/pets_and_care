@@ -2,7 +2,7 @@ import { Box, Center, Image, Tag, Text } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { GetProductcatSuccess, GetProductRequest } from '../../Redux/AppReducer/Action'
+import { GetProductcatSuccess, GetProductRequest,GetGROOMSlideShowFailure } from '../../Redux/AppReducer/Action'
 import Footer from '../Footer'
 import Navbar from '../Navbar'
 import "./productpage.css"
@@ -20,9 +20,34 @@ const sortDataByDesc = () => {
   );
  };
 
+ //filteration
+ const getdatabydog=()=>{
+  return (
+   axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/food/feed?used=dogs")
+   );
+ };
+ 
+ const getdatabycat=()=>{
+   return (
+    axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/food/feed?used=cats")
+    );
+  };
+ 
+  const getdatabybird=()=>{
+   return (
+    axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/food/feed?used=birds")
+    );
+  };
+ 
+  const getdatabyrabbit=()=>{
+   return (
+    axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/food/feed?used=rabbits")
+    );
+  };
+
 
 const Foodspage = () => {
-  const [loading,setLoading]=useState(false)
+  const load = useSelector((store) => store.isLoading);
     const dispatch=useDispatch()
     const catData=useSelector((store)=>store.CatProduct)
 
@@ -50,10 +75,59 @@ const Foodspage = () => {
   // console.log(res.data.food_data);
   });
   }
+
+  const handledogdata=()=>{
+    getdatabydog(GetProductRequest())
+    getdatabydog().then((res)=>{
+      dispatch(GetProductcatSuccess(res.data.food_data))
+      // console.log(res.data.caredata
+      //   )
+    })
+    .catch((er)=>{
+      dispatch(GetGROOMSlideShowFailure())
+    })
+  };
+  
+  const handlecatdata=()=>{
+    getdatabycat(GetProductRequest())
+    getdatabycat().then((res)=>{
+      dispatch(GetProductcatSuccess(res.data.food_data))
+      // console.log(res.data.caredata
+      //   )
+    })
+    .catch((er)=>{
+      dispatch(GetGROOMSlideShowFailure())
+    })
+  };
+  
+  const handlebirddata=()=>{
+    getdatabybird(GetProductRequest())
+    getdatabybird().then((res)=>{
+      dispatch(GetProductcatSuccess(res.data.food_data))
+      // console.log(res.data.caredata
+      //   )
+    })
+    .catch((er)=>{
+      dispatch(GetGROOMSlideShowFailure())
+    })
+  };
+  
+  const handlerabbitdata=()=>{
+    getdatabyrabbit(GetProductRequest())
+    getdatabyrabbit().then((res)=>{
+      dispatch(GetProductcatSuccess(res.data.food_data))
+      // console.log(res.data.caredata
+      //   )
+    })
+  }
+
+
+
+
+
+
   useEffect(()=>{
-    setLoading(true)
-    catproduct()
-    setLoading(false)
+    catproduct() 
   },[])
   return (
     <div className='Product_page'>
@@ -66,11 +140,24 @@ const Foodspage = () => {
             <button class="button-73" role="button" onClick={handlesortByDesc}>PRICE: HIGH TO LOW</button>
             <button class="button-73" role="button" onClick={handlesortByAsc}>PRICE: LOW TO HIGH</button>
             </div>
+            <h3 id="title" style={{ marginTop: "35px" }}>
+            FILTERATION
+          </h3>
+          <Box className="filter_grp">
+            <h2 id="title2">FILTER BY PETS</h2>
+            <Box className="radio_gp">
+            <button class="button-73" role="button" onClick={handledogdata} >DOGS CARE</button>
+            <button class="button-73" role="button"  onClick={handlecatdata}>CATS CARE</button>
+            <button class="button-73" role="button" onClick={handlebirddata}>BIRDS CARE</button>
+            <button class="button-73" role="button" onClick={handlerabbitdata}>RABBITS CARE</button>
+            <button class="button-73" role="button" >REFREASH</button>
+            </Box>
+            </Box>
          </div>
          <div className='Product_gr'>
          <h3 id="title">I AM HUNGRY</h3>
          <div className='product_list'>
-         {loading===true?(
+         {load===true?(
            <div className="productPage_product_side_loading">
            <img
              src="https://cdn.svgator.com/images/2022/07/cute-animated-cat-tutorial.gif"

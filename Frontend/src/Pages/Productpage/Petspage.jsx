@@ -18,7 +18,7 @@ const Petspage = () => {
   const [color, setColor] = useState("");
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState("asc");
-  const [SearchParams,setSearchParams] = useSearchParams();
+  const [,setSearchParams] = useSearchParams();
   const catData = useSelector((store) => store.CatProduct);
   const load = useSelector((store) => store.isLoading);
   const { pets } = useParams();
@@ -105,6 +105,7 @@ const Petspage = () => {
                   <Radio value="Green">Green</Radio>
                   <Radio value="Yellow">Yellow</Radio>
                   <Radio value="Grey">Grey</Radio>
+                  <button class="button-73" role="button">REFREASH</button>
                 </Stack>
               </RadioGroup>
             </Box>
@@ -220,9 +221,13 @@ const Petspage = () => {
             </Box>
 
           </Center>
-          <Flex gap={"10px"} justifyContent={"space-around"}>
+          <Flex gap={"100px"} ml={"70px"}>
+            <Center>
             <Button isDisabled={page <= 1} onClick={() => handlePage("-")}>Prev</Button>
+            </Center>
+            <Center>
             <Button onClick={() => handlePage("+")}>Next</Button>
+            </Center>
           </Flex>
         </Box>
 
