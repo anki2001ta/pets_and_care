@@ -27,9 +27,11 @@
 }
 
 #title{
+  
     font-size: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: rgb(246, 215, 14);
+    
     /* border:3px solid black */
 }
 .functi{
@@ -46,6 +48,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
     color: red;
+    
 }
 .button-73 {
     appearance: none;
@@ -201,4 +204,13 @@
   width:10px;
   height:10px;
   border:1px solid black
+}
+
+
+/* CSS */
+.filter_grp{
+  height:330px;
+  border:1px solid rgb(231, 229, 229);
+  margin-top: 50px;
+  border-radius: 15px;
 }

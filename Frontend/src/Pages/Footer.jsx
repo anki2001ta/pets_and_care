@@ -76,6 +76,7 @@ import {
     return (
       <Box
         bg={"#f7c719"}
+        mt={10}
         color={useColorModeValue('gray.700', 'gray.200')}>
         <Container as={Stack} maxW={'6xl'} py={10}>
           <SimpleGrid
