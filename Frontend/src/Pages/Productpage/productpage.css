@@ -104,6 +104,7 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 26px;
+   
   }
   .para p{
     text-align: left;
@@ -152,6 +153,7 @@
   margin-top: 35px;
   width:100%;
   
+  
  }
  
  .button-52{
@@ -189,6 +191,7 @@
 }
 .radio_gp{
   margin-top: 10px;
+ 
 }
 @media (min-width: 768px) {
   .button-52 {
@@ -198,6 +201,8 @@
 .radio{
   border:1px solid rgb(209, 204, 204);
   border-radius: 10px;
+  height:350px;
+ 
   
 }
 .color{
@@ -213,4 +218,12 @@
   border:1px solid rgb(231, 229, 229);
   margin-top: 50px;
   border-radius: 15px;
+  
+};
+
+#loading{
+  align-items: center;
+  width:250px;
+  height:150px
 }
+

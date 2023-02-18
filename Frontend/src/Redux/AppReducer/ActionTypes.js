@@ -14,4 +14,5 @@ export const GET_Product_bird_SUCCESS = 'GET_Product_bird_SUCCESS';
 export const GET_Product_rabbit_SUCCESS = 'GET_Product_rabbit_SUCCESS';
 
 export const GET_User_SUCCESS = 'GET_User_SUCCESS';
-export const GET_SEARCH_SUCCESS='GET_SEARCH_SUCCESS'
+export const GET_SEARCH_SUCCESS='GET_SEARCH_SUCCESS';
+export const GET_SINGLEPAGE_SUCCESS = 'GET_SINGLEPAGE_SUCCESS';

@@ -1,7 +1,8 @@
 import { Box, Center, Image, Stack, Tag, Text } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { GetProductcatSuccess, GetProductRequest, GetGROOMSlideShowFailure} from '../../Redux/AppReducer/Action'
 import Footer from '../Footer'
 import Navbar from '../Navbar'
@@ -49,7 +50,7 @@ const Carepage = () => {
     const dispatch=useDispatch()
     const load = useSelector((store) => store.isLoading)
     const catData=useSelector((store)=>store.CatProduct)
-
+    const Navigate=useNavigate()
     const catproduct=()=>{
         dispatch( GetProductRequest())
         axios.get("https://breakable-trench-coat-deer.cyclic.app/pets/care/groom")
@@ -119,6 +120,19 @@ const Carepage = () => {
       // console.log(res.data.caredata
       //   )
     })
+  };
+
+  const handleSinglepage=(id)=>{
+    try {
+      Navigate(`/individualpage/care/${id}`)
+    } catch (error) {
+      console.log(error)
+    }
+    
+  }
+
+  const handlerefreash=()=>{
+    catproduct()
   }
   useEffect(()=>{
    
@@ -146,7 +160,7 @@ const Carepage = () => {
             <button class="button-73" role="button" onClick={handlecatdata}>CATS CARE</button>
             <button class="button-73" role="button"onClick={handlebirddata}>BIRDS CARE</button>
             <button class="button-73" role="button" onClick={handlerabbitdata}>RABBITS CARE</button>
-            <button class="button-73" role="button" >REFREASH</button>
+            <button class="button-73" role="button" onClick={handlerefreash}>REFREASH</button>
             </Box>
           </Box>
          </div>
@@ -179,7 +193,7 @@ const Carepage = () => {
   <Center>
     <Text>Price: Rs{item.Price}</Text>
   </Center>
-                      <button className="button-54">VIEW ME</button>
+                      <button className="button-54" onClick={handleSinglepage}>VIEW ME</button>
                      
                     </Box>
                     )) 
@@ -190,7 +204,7 @@ const Carepage = () => {
          </div>
         </div>
         <div >
-            <Footer/>
+            <Footer/>          
         </div>
     </div>
   )
