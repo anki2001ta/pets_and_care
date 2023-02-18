@@ -82,3 +82,10 @@ export const GetProductFailure = ( ) =>{
         type : types.GET_Product_FAILURE
     }
 }
+
+export const GetSingleSuccess = (payload) =>{
+    return {
+        type : types.GET_SINGLEPAGE_SUCCESS,
+        payload
+    }
+}

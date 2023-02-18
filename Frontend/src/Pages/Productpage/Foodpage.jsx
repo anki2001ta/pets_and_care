@@ -120,7 +120,9 @@ const Foodspage = () => {
       //   )
     })
   }
-
+  const handlerefreash=()=>{
+    catproduct()
+  }
 
 
 
@@ -150,7 +152,7 @@ const Foodspage = () => {
             <button class="button-73" role="button"  onClick={handlecatdata}>CATS CARE</button>
             <button class="button-73" role="button" onClick={handlebirddata}>BIRDS CARE</button>
             <button class="button-73" role="button" onClick={handlerabbitdata}>RABBITS CARE</button>
-            <button class="button-73" role="button" >REFREASH</button>
+            <button class="button-73" role="button" onClick={handlerefreash} >RESET</button>
             </Box>
             </Box>
          </div>

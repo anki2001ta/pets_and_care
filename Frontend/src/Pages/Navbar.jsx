@@ -227,13 +227,7 @@ const Navbar = () => {
                           >
                             My Account
                           </MenuItem>
-                          <MenuItem
-                            fontWeight={600}
-                            bgColor={"blackAlpha.100"}
-                            color={"black"}
-                          >
-                            Logout
-                          </MenuItem>
+                          
                         </Box>
                       </Box>
                     </MenuList>

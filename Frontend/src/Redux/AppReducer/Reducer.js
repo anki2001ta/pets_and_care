@@ -9,6 +9,7 @@ const InitialData = {
     isLoading : false,
     user:{},
     searchData:[],
+    singleData:{},
     isError : false
 }
 
@@ -121,6 +122,16 @@ export default function Reducer (state=InitialData, action) {
                 searchData:payload,
             }
         }
+
+        case types.GET_SINGLEPAGE_SUCCESS : {
+            return {
+                ...state,
+               
+                singleData: payload,
+                
+            }
+        }
+
         default :
         return state
     }

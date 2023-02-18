@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex, Image, Radio, RadioGroup, Stack } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Image, Radio, RadioGroup, Stack, Tag } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,11 +50,16 @@ const Petspage = () => {
     else if (ops == "+") {
       setPage((prev) => prev + 1);
     }
+  };
+
+  const handlerefreash=()=>{
+    setColor("")
+    setSort("asc")
   }
 
   const handleSinglepage=(id)=>{
     try {
-      Navigate(`/individualpage/${id}`)
+      Navigate(`/individualpage/pets/${id}`)
     } catch (error) {
       console.log(error)
     }
@@ -105,7 +110,7 @@ const Petspage = () => {
                   <Radio value="Green">Green</Radio>
                   <Radio value="Yellow">Yellow</Radio>
                   <Radio value="Grey">Grey</Radio>
-                  <button class="button-73" role="button">REFREASH</button>
+                  <button id="btn_12" class="button-73" role="button" onClick={handlerefreash}>REsET</button>
                 </Stack>
               </RadioGroup>
             </Box>
@@ -118,7 +123,7 @@ const Petspage = () => {
               {load === true ? (
                 <Center>
                   <Box className="productPage_product_side_loading">
-                    <Image
+                    <img id="loading"
                       src="https://cdn.svgator.com/images/2022/07/cute-animated-cat-tutorial.gif"
                       alt=""
                     />
@@ -221,12 +226,13 @@ const Petspage = () => {
             </Box>
 
           </Center>
-          <Flex gap={"100px"} ml={"70px"}>
+          <Flex  gap={"50px"} justifyContent={"center"} mt={"20px"}>
             <Center>
-            <Button isDisabled={page <= 1} onClick={() => handlePage("-")}>Prev</Button>
+            <Button bgColor={"black"} color={"white"} isDisabled={page <= 1} onClick={() => handlePage("-")}>Prev</Button>
             </Center>
+            <Tag   bgColor={"yellow.400"} color={"black"}>{page}</Tag>
             <Center>
-            <Button onClick={() => handlePage("+")}>Next</Button>
+            <Button bgColor={"black"} color={"white"} onClick={() => handlePage("+")}>Next</Button>
             </Center>
           </Flex>
         </Box>
