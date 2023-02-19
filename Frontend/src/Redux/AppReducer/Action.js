@@ -14,6 +14,12 @@ export const GetGROOMSlideShowSuccess = (payload) =>{
     }
 }
 
+export const GetSearchRemove = () =>{
+    return {
+        type : types.GET_SEARCH_REMOVE
+    }
+}
+
 export const GetfoodlideShowSuccess = (payload) =>{
     return {
         type : types.GET_Food_SLIDESHOW_SUCCESS,

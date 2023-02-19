@@ -13,6 +13,8 @@ import { useToast } from "@chakra-ui/react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cat from "../Pages/Cat";
+import { PostUserSuccess } from "../Redux/AppReducer/Action";
+import { useDispatch } from "react-redux";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCUvSRh5yX4-ngtw2IgKzxCt7zZcqRDq1I",
@@ -30,8 +32,9 @@ const Auth = getAuth(app);
 const useFire = () => {
   const toast = useToast();
   const navigateUser = useNavigate();
-  
+  const dispatch=useDispatch();
   const HandleGoogle = () => {
+    
     const googleProvider = new GoogleAuthProvider();
     signInWithPopup(Auth, googleProvider)
       .then((res) => {
@@ -90,6 +93,7 @@ const useFire = () => {
                       });
                 }
                 if (res.data.administration == false && res.data.token !== "") {
+                  dispatch(PostUserSuccess({name:res.data.displayName}))
                   navigateUser("/");
                 } else if (
                   res.data.administration == true &&
