@@ -27,34 +27,54 @@ import { useRef } from "react";
 import cat from "../Resources/cutecat.png";
 import dog from "../Resources/dog.png";
 // import {FaBars,FaTimes} from "react-icons/fa"
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useDebouncedCallback } from "use-debounce";
 import axios from "axios";
-import { GetSearchSuccess } from "../Redux/AppReducer/Action";
+import { GetProductFailure, GetSearchRemove, GetSearchSuccess, PostUserSuccess } from "../Redux/AppReducer/Action";
 
 const Navbar = () => {
   let userInput = useRef();
   const dispatch = useDispatch();
-  const searchData = useSelector((store) => store.searchData) || [];
+  let searchPets = useSelector((store) => store.searchData);
   // console.log(userInput.current);
+  const Navigate=useNavigate()
   const debounced = useDebouncedCallback(() => {
     axios
       .get(
-        `https://breakable-trench-coat-deer.cyclic.app/pets/${userInput.current.value}`
+        `https://breakable-trench-coat-deer.cyclic.app/pets/pet/search?petname=${userInput.current.value}`
       )
       .then((r) => {
-        dispatch(GetSearchSuccess(r.data.petbase));
-      });
+        dispatch(GetSearchSuccess(r.data.searchData));
+      })
+      .catch(()=>{
+        dispatch(GetProductFailure())
+      })
   }, 1500);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const user = useSelector((store) => store.user);
   const refer = useRef();
-
+  const handleLog=(method)=>{
+    if(method=="signin"){
+      Navigate("/login");
+    }
+    else{
+      dispatch(PostUserSuccess({}))
+      Navigate("/login");
+    }
+  }
   const handledrawer = () => {
     onOpen();
   };
-
+  const handlesearch=(id)=>{
+    try {
+      userInput.current.value="";
+      Navigate(`/individualpage/pets/${id}`)
+      dispatch(GetSearchRemove());
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <Box>
       <Box
@@ -94,21 +114,23 @@ const Navbar = () => {
                   </Center>
                   <Center>
                     <Box
-                      bgColor={searchData.length <= 0 ? "#f7c719" : "white"}
+                      bgColor={searchPets.length <= 0 ? "#f7c719" : "white"}
                       h={"300px"}
                       w={"700px"}
                       borderRadius={"10px"}
                       overflow={"scroll"}
-                      opacity={searchData.length <= 0 ? "0" : "1"}
-                      pointerEvents={searchData.length <= 0 ? "none" : "auto"}
+                      opacity={searchPets.length <= 0 ? "0" : "1"}
+                      pointerEvents={searchPets.length <= 0 ? "none":"auto"}
                     >
-                      {searchData.length > 0 &&
-                        searchData.map(({ url, name }) => (
+                      {searchPets.length > 0 &&
+                        searchPets.map(({ url, name,_id }) => (
                           <Flex
                             gap={"10px"}
                             p={"10px"}
                             border={"0.5px solid gray"}
                             padding={"3px"}
+                            cursor={"pointer"}
+                            onClick={()=>handlesearch(_id)}
                           >
                             <Center>
                               <Box>
@@ -206,7 +228,7 @@ const Navbar = () => {
                         <br />
                         <Center>
                           <p className="username_data">
-                            {user.name == " " ? "GUEST" : user.name}
+                            {user.name == undefined ? "GUEST" : user.name}
                           </p>
                         </Center>
                         <MenuDivider />
@@ -216,9 +238,7 @@ const Navbar = () => {
                             bgColor={"blackAlpha.100"}
                             color={"black"}
                           >
-                            <Link to="/signup">
-                            Sign up
-                            </Link>
+                            <Box onClick={user.name == undefined ? ()=>handleLog("signin") : ()=>handleLog("signout")}>{user.name == undefined ? "SignIn" : "LogOut"}</Box>
                           </MenuItem>
                           <MenuItem
                             fontWeight={600}
