@@ -107,7 +107,7 @@ const Navbar = () => {
                     <input
                       ref={userInput}
                       type="text"
-                      placeholder="Search pets,products here"
+                      placeholder="Search your pet partner here"
                       id="input"
                       onChange={debounced}
                     />
