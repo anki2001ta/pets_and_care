@@ -38,11 +38,10 @@ Technologies used in the project:
 **Product Page:**
 ![Screenshot (337)](https://user-images.githubusercontent.com/107462155/219299000-89331138-91fa-4184-9653-dfb752378c9a.png)
 
-![Screenshot (338)](https://user-images.githubusercontent.com/107462155/219299466-49436d74-f4d2-44b7-a65a-d5b4f97a2263.png)
+![Screenshot (351)](https://user-images.githubusercontent.com/107462155/220111009-3e8a0ba2-c15b-41d1-95e8-47227fe0c841.png)
 
 **Single Product Page:**
-
-
+![Screenshot (349)](https://user-images.githubusercontent.com/107462155/220111095-769d19f2-bf8b-41f3-936f-458c667b67b1.png)
 
 **Cart Page:**
 
