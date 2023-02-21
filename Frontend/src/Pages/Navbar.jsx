@@ -173,7 +173,7 @@ const Navbar = () => {
         <Center>
           <Flex className="nav_data2" gap={25} pt={10} ml={"-8%"} pb={10}>
             <Link to="/">
-              <h2>HOME</h2>
+              <h2 >HOME</h2>
             </Link>
             <Link to="/carepage">
               <h2>GROOMING</h2>

@@ -1,21 +1,59 @@
-const { petdataModel}=require("../Models/pet.model")
+const {petdataModel}=require("../Models/Pet.model")
 const {careModel}=require("../Models/Care.model")
 const {foodModel}=require("../Models/Food.model")
-
+const {cartModel}=require("../Models/Cart.model")
 
 //default url for pets collection
 exports.petsdata=async(req,res)=>{
-  const pets_data= await petdataModel.find( {category:"birds"}).limit(5).skip((1-1)*5)
+ let id= req.params.id
+ try {
+   let petData=await petdataModel.findById(id)
+   res.status(200).json({
+      sucess:true,
+      data: petData,
+      
+   })
 
-//   const care_data= await careModel.find()
-//   const food_data= await foodModel.find()
-  res.status(200).json({
-   sucess:true,
-   pets_data,
-   // care_data,
-   // food_data
-})
+ } catch (error) {
+   console.log(error)
+ }
+
 };
+
+exports.foodsingledata=async(req,res)=>{
+   let id= req.params.id
+   try {
+     let foodsingData=await foodModel.findById(id)
+     res.status(200).json({
+        sucess:true,
+
+        data:foodsingData,
+        
+     })
+  
+   } catch (error) {
+     console.log(error)
+   }
+  
+  };
+
+
+  exports.caresingledata=async(req,res)=>{
+   let id= req.params.id
+   console.log(id)
+   try {
+     let caresingData=await careModel.findById(id)
+     res.status(200).json({
+        sucess:true,
+        data: caresingData,
+        
+     })
+  
+   } catch (error) {
+     console.log(error)
+   }
+  
+  };
 
 //function to create pet data
 //all pets route
@@ -65,7 +103,7 @@ catch(er){
 //care get route
 exports.careget=async(req,res)=>{
    try{
-      let {price,sortBy,rating,used,limit=16,page=1}=req.query;
+      let {price,sortBy,rating,used}=req.query;
       let temp={};
       if(price!==undefined){
          temp.price=price
@@ -79,7 +117,7 @@ exports.careget=async(req,res)=>{
       let caredata;
       let sorts={};
       if(sortBy==undefined){
-         caredata=await careModel.find(temp).limit(limit).skip((page-1)*limit)
+         caredata=await careModel.find(temp)
       }
       else{
          if(sortBy=="asc"){
@@ -88,7 +126,7 @@ exports.careget=async(req,res)=>{
          else if(sortBy=="desc"){
             sorts.Price=-1
          }
-         caredata= await careModel.find(temp).sort(sorts).limit(limit).skip((page-1)*limit)
+         caredata= await careModel.find(temp).sort(sorts)
       }
        
       res.status(200).json({
@@ -102,14 +140,33 @@ exports.careget=async(req,res)=>{
    
   };
 
-
+exports.searchpets=async(req,res)=>{
+   try{
+      const {petname}=req.query;
+      console.log(petname)
+      if(petname=="" || petname==undefined){
+         res.status(200).json({
+            sucess:true,
+            searchData:[]
+         });
+      }
+      let searchData=await petdataModel.find({name:{$regex:petname}});
+      res.status(200).json({
+         sucess:true,
+         searchData
+      });
+   }
+   catch(er){
+      console.log(er)
+   }
+}
 
 
 
 //food get
 exports.foodget=async(req,res)=>{
    try{
-      let {price,sortBy,rating,used,limit=16,page=1}=req.query;
+      let {price,sortBy,rating,used}=req.query;
       let temp={};
       if(price!==undefined){
          temp.price=price
@@ -123,7 +180,7 @@ exports.foodget=async(req,res)=>{
       let food_data;
       let sorts={};
       if(sortBy==undefined){
-         food_data=await foodModel.find(temp).limit(limit).skip((page-1)*limit)
+         food_data=await foodModel.find(temp)
       }
       else{
          if(sortBy=="asc"){
@@ -133,7 +190,7 @@ exports.foodget=async(req,res)=>{
             sorts.Price=-1
          }
       
-       food_data= await foodModel.find(temp).sort(sorts).limit(limit).skip((page-1)*limit)
+       food_data= await foodModel.find(temp).sort(sorts)
       }
        res.status(200).json({
          sucess:true,
@@ -163,5 +220,15 @@ exports.foodCreate=async(req,res)=>{
    res.send(req.body).json({
       sucess:true,
       foodbase
+   });
+  };
+
+
+  //cart route
+  exports.cartCreate=async(req,res)=>{
+   const cartbase= await cartModel.create(req.body)
+   res.send(req.body).json({
+      sucess:true,
+      cartbase
    });
   };
