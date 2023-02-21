@@ -1,3 +1,7 @@
+
+# pets_and_care
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
 <h1 align="center" id="title">PETS N CARE</h1>
 Pets n Care is an Ecommerce Website,that mainly sells cute and friendly pets (pet partner) aswell pets grooming and food product.The main focus of the entire website is to provide shelter to pets and care them.
 
@@ -132,4 +136,4 @@ $ npm run build  // this will compile the react code using webpack and generate 
 
 
 
-       
+

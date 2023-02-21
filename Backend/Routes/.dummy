@@ -1,0 +1,162 @@
+[
+    {
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/4_10_360x.jpg?v=1662453035",
+      "name":"PAWSINDIA",
+      "Usedfor":"Dogs",
+      "Price":3999,
+      "rating":4.5
+      
+    },
+    {
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/27_540x_dc32a4cd-7f13-4ee6-9e63-7775aae5385a_360x.jpg?v=1634820529",
+      "name":"PETNATURALREMEDY",
+      "Usedfor":"Dogs",
+      "Price":238.00,
+      "rating":3.5
+      
+    },
+   {
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/4241_360x.jpg?v=1666343529",
+      "name":"TRIXIE",
+      "Usedfor":"Rabbits",
+      "Price":261.00,
+      "rating":3.4
+      
+    },
+  {
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/c1_720x_b913b6f2-14d3-478f-99d8-1bcee1c8a786_360x.jpg?v=1622868482",
+      "name":"TOP DOG",
+      "Usedfor":"Cats",
+      "Price":451.00,
+      "rating":4.5
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/originals_PHO_PRO_USE_PHO_PRO_USE_23762-1__SALL__AWK__V1_360x.jpg?v=1666180450",
+      "name":"TRIXIE BRUSH",
+      "Usedfor":"Birds",
+      "Price":523.00,
+      "rating":3.4
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/Petsnugs-Leopard-Knit-Sweater-04_360x.jpg?v=1663994901",
+      "name":"PETSNUGS",
+      "Usedfor":"Cats",
+      "Price":949.00,
+      "rating":4.5
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/Petsnugs-Maroon-Jacket-01_360x.jpg?v=1663994941",
+      "name":"PETSNUGS",
+      "Usedfor":"Dogs",
+      "Price":450.00,
+      "rating":4.5
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/5_746a21d9-6f3b-4910-a52a-f15b5904776c_360x.jpg?v=1667459821",
+      "name":"PETS WAY",
+      "Usedfor":"Dogs",
+      "Price":1345.00,
+      "rating":5.6
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/cable-knit-sweater-03_360x.jpg?v=1663994535",
+      "name":"PETSNUGS",
+      "Usedfor":"Dogs",
+      "Price":1449.00,
+      "rating":4.5
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/Image_7_70a23854-0f32-4078-ab24-6eadb17f4304_360x.png?v=1643631773",
+      "name":"FOFOS",
+      "Usedfor":"Rabbits",
+      "Price":350.00,
+      "rating":3.4
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/Image_6_8_360x.png?v=1643628930",
+      "name":"FOFOS",
+      "Usedfor":"Birds",
+      "Price":300.00,
+      "rating":3.2
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/320352_2_360x.jpg?v=1666099265",
+      "name":"TROPICLEAN",
+      "Usedfor":"Dogs",
+      "Price":1324.00,
+      "rating":2.4
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/NaturalAnti-Tick_FleaMoisturizingShampoo3_360x.jpg?v=1665731155",
+      "name":"DOGZKART",
+      "Usedfor":"Dogs",
+      "Price":455.00,
+      "rating":4.5
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/2_db493a7b-eaae-46bf-8500-40e112c61b37_360x.jpg?v=1664798611",
+      "name":"PUPS & PAWS",
+      "Usedfor":"Cats",
+      "Price":333.00,
+      "rating":4.6
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/2_b75e2cad-5475-41ea-8659-bd492977434e_360x.jpg?v=1664798577",
+      "name":"PUPS & PAWS",
+      "Usedfor":"Cats",
+      "Price":560.00,
+      "rating":3.4
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/nat_540x_07616128-f4d9-49f0-a850-2ee67a67d377_360x.jpg?v=1634819749",
+      "name":"PETNATURALREMEDY",
+      "Usedfor":"Dogs",
+      "Price":428.00,
+      "rating":3.2
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/29_540x_5d8dd850-9fa3-45d0-840d-980286b630a5_360x.jpg?v=1634820723",
+      "name":"PETNATURALREMEDY",
+      "Usedfor":"Dogs",
+      "Price":250.00,
+      "rating":4.7
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/tremblingmonsterblue1_360x.jpg?v=1666865535",
+      "name":"Roler",
+      "Usedfor":"Rabbits",
+      "Price":560.00,
+      "rating":5.0
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/Image_4_73be402d-f2bc-49e5-854b-fbfb17c55372_360x.jpg?v=1643691216",
+      "name":"FOFOS",
+      "Usedfor":"Birds",
+      "Price":319.00,
+      "rating":4.2
+      
+    },
+{
+      "url":"https://cdn.shopify.com/s/files/1/1199/8502/products/Image_5_10_360x.jpg?v=1643262124",
+      "name":"FOFOS",
+      "Usedfor":"Birds",
+      "Price":450.00,
+      "rating":4.0
+      
+    }
+]

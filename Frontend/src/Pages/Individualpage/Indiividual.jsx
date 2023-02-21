@@ -8,9 +8,10 @@ import { Box, Button, Flex,  Text } from '@chakra-ui/react';
 import Footer from '../Footer';
 import "./Individual.css"
 const Individual = () => {
-  const {category,id}=useParams()
-  const dispatch=useDispatch()
-  const indiData=useSelector((store)=>store.singleData)
+  const {category,id}=useParams();
+  const dispatch=useDispatch();
+  const indiData=useSelector((store)=>store.singleData);
+  const user=useSelector((store)=>store.user);
  // console.log(indiData)
   let api;
   if(category=="pets"){
@@ -22,6 +23,9 @@ const Individual = () => {
   }
   else if(category=="care"){
     api=`${process.env.REACT_APP_URL}/pets/caresingle/${id}`
+  }
+  const handleCart=()=>{
+    console.log(user.name)
   }
   useEffect(()=>{
     dispatch(GetProductRequest())
@@ -40,7 +44,8 @@ const Individual = () => {
         <Flex justifyContent={"space-evenly"}>
           <Box w={"45%"} h={"370px"} >
             <img id="single_img" src={indiData?.url} style={{width:"100%",height:"100%"}} alt="" />
-            <Button mt={"10px"} w={"98%"} bgColor={"black"} color={"yellow.400"}>ADD TO CART</Button>
+            {/* add to the cart */}
+            <Button mt={"10px"} w={"98%"} bgColor={"black"} color={"yellow.400"} onClick={handleCart}>ADD TO CART</Button>
           </Box>
           <Box w={"45%"} h={"500px"} >
             <Box w={"95%"} h={"80px"}  m={"auto"} border={"0.5px solid grey"} textAlign={"justify"} borderRadius={"10px"} > 
