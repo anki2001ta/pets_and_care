@@ -18,6 +18,7 @@ import {
   useToast,
   useDisclosure,
 } from "@chakra-ui/react";
+
 import React from "react";
 import "./Navbar.css";
 import logo from "../Resources/petlogo.png";
@@ -259,14 +260,19 @@ const Navbar = () => {
                           >
                             <Box onClick={user.name == "" ? ()=>handleLog("signin") : ()=>handleLog("signout")}>{user.name == "" ? "SignIn" : "LogOut"}</Box>
                           </MenuItem>
-                          <MenuItem
-                            fontWeight={600}
-                            bgColor={"blackAlpha.100"}
-                            color={"black"}
-                          >
-                            My Account
-                          </MenuItem>
-                          
+                          {
+                            user.name!=""?(
+                              <Link to={"/user"}>
+                              <MenuItem
+                                fontWeight={600}
+                                bgColor={"blackAlpha.100"}
+                                color={"black"}
+                              >
+                                My Account
+                              </MenuItem>
+                              </Link>
+                            ):null
+                          }
                         </Box>
                       </Box>
                     </MenuList>

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import "../Cart/Address.css"
-import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { AddressItem } from '../../Components/Cart/AddressItem'
 import { PaymentDetils } from '../../Components/Cart/PaymentDetils'
+import Razorpay from './../../Components/Razorpay';
 export const Address = () => {
-  let navigate=useNavigate()
  
   let [price,setPrice]=useState(0);
   let cart=useSelector((store)=>store.cart);
+  let coupon=useSelector((store)=>store.coupon);
+  // coupon ? cartPrice*0.6 : Math.floor(cartPrice*0.8)
   useEffect(()=>{
    let x=0;
     for(let i=0;i<cart.length;i++){
@@ -39,10 +40,7 @@ export const Address = () => {
         </div>
         <div>
           <PaymentDetils cartPrice={price}/>
-          <div className='PaymentButton'><button onClick={()=>{
-            localStorage.setItem("price",price.toFixed(2))
-              navigate('/payment')
-          } }>Make Payment</button></div>
+          <Razorpay/>
         </div>
       </div>
     </div>
