@@ -1,15 +1,17 @@
 import axios from 'axios';
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { GetProductRequest, GetSingleSuccess } from '../../Redux/AppReducer/Action';
+import { AddToCart, GetProductRequest, GetSingleSuccess } from '../../Redux/AppReducer/Action';
 import Navbar from '../Navbar'
-import { Box, Button, Flex,  Text } from '@chakra-ui/react';
+import { Box, Button, Flex,  Text, useToast } from '@chakra-ui/react';
 import Footer from '../Footer';
 import "./Individual.css"
 const Individual = () => {
   const {category,id}=useParams();
+  const navigate=useNavigate();
   const dispatch=useDispatch();
+  const Toast = useToast()
   const indiData=useSelector((store)=>store.singleData);
   const user=useSelector((store)=>store.user);
  // console.log(indiData)
@@ -25,7 +27,37 @@ const Individual = () => {
     api=`${process.env.REACT_APP_URL}/pets/caresingle/${id}`
   }
   const handleCart=()=>{
-    console.log(user.name)
+    if(user.token==""){
+      
+      Toast({
+        title: "Please login first",
+        status: "warning",
+        duration: 1500,
+        isClosable: true,
+        position: "top",
+      });
+      setTimeout(()=>{
+        navigate("/login");
+      },1500)
+    }
+    else{
+      axios.post(`${process.env.REACT_APP_URL}/cart/create`,indiData,{
+        headers: {
+          Authorization: `Bearer ${user.token}` 
+        }
+       }).then(()=>{
+        Toast({
+          title: "Item Added To Cart Successfully.",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+      })
+      .catch((er)=>{
+        console.log(er)
+      })
+    }
   }
   useEffect(()=>{
     dispatch(GetProductRequest())
@@ -33,10 +65,7 @@ const Individual = () => {
     dispatch(GetSingleSuccess((res.data.data)))
     // console.log(res.data.data)
   })
-  .catch((er)=>{
-    console.log(er)
-  })
-  },[])
+},[])
   return (
     <Box>
       <Navbar/>

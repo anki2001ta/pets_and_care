@@ -15,8 +15,10 @@ import {
   MenuItem,
   MenuList,
   Text,
+  useToast,
   useDisclosure,
 } from "@chakra-ui/react";
+
 import React from "react";
 import "./Navbar.css";
 import logo from "../Resources/petlogo.png";
@@ -35,8 +37,10 @@ import { GetProductFailure, GetSearchRemove, GetSearchSuccess, PostUserSuccess }
 
 const Navbar = () => {
   let userInput = useRef();
+  const Toast = useToast();
   const dispatch = useDispatch();
   let searchPets = useSelector((store) => store.searchData);
+  const user = useSelector((store) => store.user);
   // console.log(userInput.current);
   const Navigate=useNavigate()
   const debounced = useDebouncedCallback(() => {
@@ -52,8 +56,24 @@ const Navbar = () => {
       })
   }, 1500);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const user = useSelector((store) => store.user);
+  
   const refer = useRef();
+  const handleCart=()=>{
+    if(user.token==""){
+      Toast({
+        title: "Please login first",
+        status: "warning",
+        duration: 1500,
+        isClosable: true,
+        position: "top",
+      });
+      setTimeout(()=>{
+        Navigate("/login");
+      },1500)
+    }else{
+      Navigate("/cart");
+    }
+  }
   const handleLog=(method)=>{
     if(method=="signin"){
       Navigate("/login");
@@ -114,12 +134,12 @@ const Navbar = () => {
                   </Center>
                   <Center>
                     <Box
-                      bgColor={searchPets.length <= 0 ? "#f7c719" : "white"}
+                      bgColor={searchPets?.length <= 0 ? "#f7c719" : "white"}
                       h={"300px"}
                       w={"700px"}
                       borderRadius={"10px"}
                       overflow={"scroll"}
-                      opacity={searchPets.length <= 0 ? "0" : "1"}
+                      opacity={searchPets?.length <= 0 ? "0" : "1"}
                       pointerEvents={searchPets.length <= 0 ? "none":"auto"}
                     >
                       {searchPets.length > 0 &&
@@ -228,7 +248,7 @@ const Navbar = () => {
                         <br />
                         <Center>
                           <p className="username_data">
-                            {user.name == undefined ? "GUEST" : user.name}
+                            {user?.name == "" ? "GUEST" : user.name}
                           </p>
                         </Center>
                         <MenuDivider />
@@ -238,22 +258,28 @@ const Navbar = () => {
                             bgColor={"blackAlpha.100"}
                             color={"black"}
                           >
-                            <Box onClick={user.name == undefined ? ()=>handleLog("signin") : ()=>handleLog("signout")}>{user.name == undefined ? "SignIn" : "LogOut"}</Box>
+                            <Box onClick={user.name == "" ? ()=>handleLog("signin") : ()=>handleLog("signout")}>{user.name == "" ? "SignIn" : "LogOut"}</Box>
                           </MenuItem>
-                          <MenuItem
-                            fontWeight={600}
-                            bgColor={"blackAlpha.100"}
-                            color={"black"}
-                          >
-                            My Account
-                          </MenuItem>
-                          
+                          {
+                            user.name!=""?(
+                              <Link to={"/user"}>
+                              <MenuItem
+                                fontWeight={600}
+                                bgColor={"blackAlpha.100"}
+                                color={"black"}
+                              >
+                                My Account
+                              </MenuItem>
+                              </Link>
+                            ):null
+                          }
                         </Box>
                       </Box>
                     </MenuList>
                   </Menu>
                 </Flex>
-                <FaShoppingCart />
+                <Box onClick={handleCart}>
+                <FaShoppingCart /></Box>
                 {/* <div id="mobile" onClick={()=>setNav(!nav)}>
        {nav?<FaTimes size={18}/>:<FaBars size={18}/>}
     </div> */}

@@ -174,7 +174,7 @@ const Foodspage = () => {
              alt=""
            />
            </div>
-         ):(
+         ):catData.length<=0?(<Center><img  src="https://cdn.dribbble.com/userupload/2905383/file/original-4ea237e94e803ddd575a66eb32198899.png?compress=1&resize=700x600&vertical=top"/></Center>):(
          
                     catData?.map((item) => ( 
                       <Box className='para'  h={"auto"} p='3' rounded='md'  border={"1px solid grey"} mb={"20px"}>

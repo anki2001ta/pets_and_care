@@ -93,7 +93,7 @@ const useFire = () => {
                       });
                 }
                 if (res.data.administration == false && res.data.token !== "") {
-                  dispatch(PostUserSuccess({name:res.data.displayName}))
+                  dispatch(PostUserSuccess({name:res.data.displayName,token:res.data.token}))
                   navigateUser("/");
                 } else if (
                   res.data.administration == true &&
