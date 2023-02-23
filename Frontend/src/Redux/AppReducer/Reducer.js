@@ -7,15 +7,18 @@ const InitialData = {
   BirdProduct: [],
   RabbitProduct: [],
   isLoading: false,
-  user: {},
+  user: { name: "", token: "" },
   searchData: [],
   singleData: {},
+  cart: [],
+  purchasedItems: [],
+  coupon: false,
   isError: false,
 };
 
 export default function Reducer(state = InitialData, action) {
   const { payload, type } = action;
-
+  let newArray = [];
   switch (type) {
     //SideShow
     case types.GET_SLIDESHOW_REQUEST: {
@@ -44,7 +47,7 @@ export default function Reducer(state = InitialData, action) {
       };
     }
 
-    case types.GET_SEARCH_REMOVE:{
+    case types.GET_SEARCH_REMOVE: {
       return {
         ...state,
         searchData: [],
@@ -134,6 +137,49 @@ export default function Reducer(state = InitialData, action) {
         singleData: payload,
       };
     }
+
+    case types.ADD_TO_CART:
+      const newPayload = payload.map((ele) => {
+        ele.qty = 1;
+        return ele;
+      });
+
+      return { ...state, cart: newPayload };
+
+    case types.DELETE_FROM_CART:
+      newArray = [...state.cart];
+      newArray = newArray.filter((el) => {
+        return el.url !== payload;
+      });
+      return { ...state, cart: [...newArray] };
+
+    case types.ADD_CART_ITEMS:
+      newArray = [...state.cart];
+      newArray = newArray.map((el) => {
+        if (el.url === payload) {
+          return { ...el, qty: el.qty + 1 };
+        } else {
+          return el;
+        }
+      });
+      return { ...state, cart: [...newArray] };
+
+    case types.REDUCE_CART_ITEMS:
+      newArray = [...state.cart];
+      newArray = newArray.map((el) => {
+        if (el.url === payload) {
+          return { ...el, qty: el.qty - 1 };
+        } else {
+          return el;
+        }
+      });
+      return { ...state, cart: [...newArray] };
+
+    case types.RESET_CART:
+      return { ...state, purchasedItems: [...state.cart], cart: [] };
+
+    case types.APPLY_COUPON:
+      return { ...state, coupon: true };
 
     default:
       return state;

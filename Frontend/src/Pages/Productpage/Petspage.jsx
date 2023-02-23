@@ -1,8 +1,23 @@
-import { Box, Button, Center, Flex, Image, Radio, RadioGroup, Stack, Tag } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  Flex,
+  Image,
+  Radio,
+  RadioGroup,
+  Stack,
+  Tag,
+} from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import {
   GetProductcatSuccess,
   GetProductRequest,
@@ -18,11 +33,11 @@ const Petspage = () => {
   const [color, setColor] = useState("");
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState("asc");
-  const [,setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
   const catData = useSelector((store) => store.CatProduct);
   const load = useSelector((store) => store.isLoading);
   const { pets } = useParams();
- const Navigate=useNavigate()
+  const Navigate = useNavigate();
   const sortDataByDesc = () => {
     setSort("desc");
   };
@@ -46,30 +61,28 @@ const Petspage = () => {
   const handlePage = (ops) => {
     if (ops == "-") {
       setPage((prev) => prev - 1);
-    }
-    else if (ops == "+") {
+    } else if (ops == "+") {
       setPage((prev) => prev + 1);
     }
   };
 
-  const handlerefreash=()=>{
-    setColor("")
-    setSort("asc")
-  }
+  const handlerefreash = () => {
+    setColor("");
+    setSort("asc");
+  };
 
-  const handleSinglepage=(id)=>{
+  const handleSinglepage = (id) => {
     try {
-      Navigate(`/individualpage/pets/${id}`)
+      Navigate(`/individualpage/pets/${id}`);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    
-  }
+  };
 
   useEffect(() => {
     const params = {
       sortBy: sort,
-      page: page
+      page: page,
     };
     catproduct();
     if (color != "") {
@@ -110,7 +123,14 @@ const Petspage = () => {
                   <Radio value="Green">Green</Radio>
                   <Radio value="Yellow">Yellow</Radio>
                   <Radio value="Grey">Grey</Radio>
-                  <button id="btn_12" class="button-73" role="button" onClick={handlerefreash}>REsET</button>
+                  <button
+                    id="btn_12"
+                    class="button-73"
+                    role="button"
+                    onClick={handlerefreash}
+                  >
+                    REsET
+                  </button>
                 </Stack>
               </RadioGroup>
             </Box>
@@ -123,15 +143,17 @@ const Petspage = () => {
               {load === true ? (
                 <Center>
                   <Box className="productPage_product_side_loading">
-                    <img id="loading"
+                    <img
+                      id="loading"
                       src="https://cdn.svgator.com/images/2022/07/cute-animated-cat-tutorial.gif"
                       alt=""
                     />
                   </Box>
                 </Center>
               ) : (
-                catData?.map((item) => (
+                catData?.map((item, ind) => (
                   <Box
+                    key={ind}
                     className="para"
                     h={"auto"}
                     p="3"
@@ -216,27 +238,43 @@ const Petspage = () => {
                       </span>{" "}
                       Rs{item.price}
                     </p>
-                  
-                    <button className="button-54" onClick={()=>handleSinglepage(item._id)}>VIEW ME</button>
-                    
-                    
+
+                    <button
+                      className="button-54"
+                      onClick={() => handleSinglepage(item._id)}
+                    >
+                      VIEW ME
+                    </button>
                   </Box>
                 ))
               )}
             </Box>
-
           </Center>
-          <Flex  gap={"50px"} justifyContent={"center"} mt={"20px"}>
+          <Flex gap={"50px"} justifyContent={"center"} mt={"20px"}>
             <Center>
-            <Button bgColor={"black"} color={"white"} isDisabled={page <= 1} onClick={() => handlePage("-")}>Prev</Button>
+              <Button
+                bgColor={"black"}
+                color={"white"}
+                isDisabled={page <= 1}
+                onClick={() => handlePage("-")}
+              >
+                Prev
+              </Button>
             </Center>
-            <Tag   bgColor={"yellow.400"} color={"black"}>{page}</Tag>
+            <Tag bgColor={"yellow.400"} color={"black"}>
+              {page}
+            </Tag>
             <Center>
-            <Button bgColor={"black"} color={"white"} onClick={() => handlePage("+")}>Next</Button>
+              <Button
+                bgColor={"black"}
+                color={"white"}
+                onClick={() => handlePage("+")}
+              >
+                Next
+              </Button>
             </Center>
           </Flex>
         </Box>
-
       </Box>
       <Box>
         <Footer />
