@@ -55,8 +55,10 @@ Technologies used in the project:
 **Payment Page:**
 ![Screenshot (364)](https://user-images.githubusercontent.com/107462155/221267084-156fa59f-a4c9-446f-899d-6b9e670e2d68.png)
 
+![Screenshot (365)](https://user-images.githubusercontent.com/107462155/221267464-ecf3eda3-89e9-40e6-9143-92387f43a98b.png)
 
 **Checkout Page:**
+![Screenshot (366)](https://user-images.githubusercontent.com/107462155/221267498-5ca24947-1d8a-4795-a41b-fa663973f2ce.png)
 
 
 **My Account Page**
