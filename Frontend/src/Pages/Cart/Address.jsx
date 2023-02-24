@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { AddressItem } from '../../Components/Cart/AddressItem'
 import { PaymentDetils } from '../../Components/Cart/PaymentDetils'
 import Razorpay from './../../Components/Razorpay';
+import Navbar from '../Navbar'
 export const Address = () => {
  
   let [price,setPrice]=useState(0);
@@ -18,7 +19,10 @@ export const Address = () => {
     setPrice(x);
   },[])
   return (
+    
+     
     <div className='Address'>
+      
       <br />
       <div>
         <div>Order Summary</div>
@@ -44,5 +48,6 @@ export const Address = () => {
         </div>
       </div>
     </div>
+   
   )
 }

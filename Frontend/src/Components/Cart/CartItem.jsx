@@ -15,13 +15,13 @@ export const CartItem = (props) => {
             <div>
                 <div>{name}</div>
                 <div>
-                    <div>
-                        {name}
-                    </div>
-                    <div>
-                        <span>{(price * 0.8).toFixed(2)}</span>
-                        <span>{price}</span>
-                        <span>You Save {(price * 0.2).toFixed(2)}</span>
+                   
+                    <div style={{textAlign:"left"}}>
+                        
+                        <span>₹{(price * 0.8).toFixed(2)}</span>
+                       <strike> <span style={{color:"red",marginLeft:"8px",textAlign:"left"}}>₹{price}</span></strike>
+                        <br></br>
+                        <span style={{color:"green",textAlign:"left"}}> You Save {(price * 0.2).toFixed(2)}</span>
                     </div>
                     <Box>
                         <AddSubstact quantity={qty} image={url} id={_id} />

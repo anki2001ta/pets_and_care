@@ -35,7 +35,7 @@ export const AddSubstact = ({quantity,image,id}) => {
           alignItems: "center",
         }}
       >
-        <Button colorScheme="blue" onClick={(quantity==1)?()=>{
+        <Button backgroundColor="#f7c719" onClick={(quantity==1)?()=>{
           handleDelete()
         }:()=>{
           handleReduce()
@@ -43,7 +43,7 @@ export const AddSubstact = ({quantity,image,id}) => {
           -
         </Button>
         <Text style={{ margin: "1rem" }}>{quantity}</Text>
-        <Button colorScheme="blue" onClick={()=>{
+        <Button backgroundColor="#f7c719" onClick={()=>{
           handleAdd()
           }}>
           +
