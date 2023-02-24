@@ -90,8 +90,8 @@ export const CartLoginItems = () => {
           <div>
             <Applycoupon cartPrice={price} />
             <PaymentDetils cartPrice={price} />
-            <div className="PaymentButton">
-              <button
+            <div className="PaymentButton2">
+              <button bgColor={"#f7c719"}
                 onClick={() => {
                   navigate("/address", { state: price });
                 }}

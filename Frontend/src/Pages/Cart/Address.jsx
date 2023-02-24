@@ -5,6 +5,7 @@ import { AddressItem } from '../../Components/Cart/AddressItem'
 import { PaymentDetils } from '../../Components/Cart/PaymentDetils'
 import Razorpay from './../../Components/Razorpay';
 import Navbar from '../Navbar'
+import { Box } from '@chakra-ui/react'
 export const Address = () => {
  
   let [price,setPrice]=useState(0);
@@ -19,8 +20,8 @@ export const Address = () => {
     setPrice(x);
   },[])
   return (
-    
-     
+    <Box>
+     <Navbar/>
     <div className='Address'>
       
       <br />
@@ -48,6 +49,6 @@ export const Address = () => {
         </div>
       </div>
     </div>
-   
+    </Box>
   )
 }

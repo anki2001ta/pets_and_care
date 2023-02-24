@@ -63,7 +63,7 @@ const Razorpay = () => {
         address: "Razorpay Corporate Office",
       },
       theme: {
-        color: "#3399cc",
+        color: "#f7c719",
       },
     };
 
@@ -71,7 +71,7 @@ const Razorpay = () => {
     rzpay.open();
   };
   return (
-    <div className="PaymentButton">
+    <div className="PaymentButton2">
       <button onClick={() => handlePayment()}>Buy</button>
     </div>
   );

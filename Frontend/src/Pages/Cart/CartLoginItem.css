@@ -59,7 +59,7 @@
 .CartLoginitems .basket>div:nth-child(2){
    width: 100%; 
 }
-.PaymentButton{
+.PaymentButton2{
     width: 100%;
     display: flex;
     justify-content: end;
@@ -67,7 +67,7 @@
     margin: 0px 20px;
     box-sizing: border-box;
 }
-.PaymentButton button{
+.PaymentButton2 button{
     width: 50%;
     font-size: .9rem;
     padding: 10px 30px;
@@ -95,7 +95,7 @@
         width: 100%;
         margin: auto;
     }
-    .PaymentButton button{
+    .PaymentButton2 button{
         width: 50%;
         font-size: 14px;
         padding: 10px 30px;

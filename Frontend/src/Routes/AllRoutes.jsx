@@ -27,7 +27,6 @@ const AllRoutes = () => {
       <Route path="/:pets" element={<Petspage />} />
       <Route path="/carepage" element={<Carepage />} />
       <Route path="/foodpage" element={<Foodspage />} />
-      {/* <Route path="/cart" element={<Cart/>}/> */}
       <Route path="/individualpage/:category/:id" element={<Indiividual />} />
       <Route
         path="/cart"
