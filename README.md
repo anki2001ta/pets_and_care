@@ -50,6 +50,7 @@ Technologies used in the project:
 
 **Cart Summary:**
 
+![Screenshot (363)](https://user-images.githubusercontent.com/107462155/221266917-66c02f16-53cd-476a-a899-3fce3c58ae06.png)
 
 **Payment Page:**
 
