@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./CartLoginItem.css";
 import { Box, useToast } from "@chakra-ui/react";
-// import { Applycoupon } from "../../Component/Cart/Applycoupon";
-// import { PaymentDetils } from "../../Component/Cart/PaymentDetils";
 import { CartLogin } from "./CartLogin";
 import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
@@ -18,7 +16,7 @@ export const CartLoginItems = () => {
   let [price, setPrice] = useState(0);
   let cart = useSelector((store) => store.cart);
   const user = useSelector((store) => store.user);
-  //   let coupon=useSelector((store)=>store.CartReducer.coupon);
+  
 
   const Toast = useToast();
   useEffect(() => {
@@ -47,24 +45,27 @@ export const CartLoginItems = () => {
   }, [price,cart])
 
   return cart.length === 0 ? (
-    <Box>
+    <Box >
       <Navbar />
       <CartLogin />
     </Box>
   ) : (
-    <div className="CartLoginitems">
+    <Box>
       <Navbar />
+    
+    <div className="CartLoginitems">
+      
       <div>
         <div>
-          <div>{`My Cart : (${cart.length} Items)`}</div>
+          <div>{`My Cart : ${cart.length} Item`}</div>
           <div></div>
         </div>
         <div className="cart1">
           <div>
             <div className="basket">
               <div>
-                <div>
-                  My Basket List<span>({cart.length} items)</span>
+                <div style={{color:"red"}}>
+                  My Basket List
                 </div>
                 <div>₹ {price.toFixed(2)}</div>
               </div>
@@ -102,5 +103,6 @@ export const CartLoginItems = () => {
         </div>
       </div>
     </div>
+    </Box>
   );
 };

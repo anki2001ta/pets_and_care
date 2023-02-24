@@ -170,6 +170,7 @@ const Foodspage = () => {
          {load===true?(
            <div className="productPage_product_side_loading">
            <img
+           style={{marginLeft:"320px",width:"450px",height:'280px'}}
              src="https://cdn.svgator.com/images/2022/07/cute-animated-cat-tutorial.gif"
              alt=""
            />

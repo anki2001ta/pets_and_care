@@ -3,23 +3,21 @@ import { Link } from 'react-router-dom'
 import "../Cart/CartLogin.css"
 export const CartLogin = () => {
     return (
-        <div className="CartLogin">
-            <div>
-                <div>
+        <div className="CartLogin" style={{backgroundColor:"#f8f8f8",marginTop:"22px"}}>
+            <div style={{backgroundColor:"#f8f8f8"}}>
+                <div id="cart_my" style={{backgroundColor:"#f8f8f8"}}>
                     My Cart
                 </div>
-                <div>
-                    <div>
-                    <img src="https://www.jiomart.com/msassets/images/emptycart.svg" alt="noCartImage" />
-                    <p>Your Cart is empty!</p>
-                    <div>Check the items below or <span><Link to="/products"> continue shopping</Link> </span></div>
+                <div style={{backgroundColor:"#f8f8f8"}}>
+                    <div style={{backgroundColor:"#f8f8f8"}}>
+                    <img id="empty" src="https://mir-s3-cdn-cf.behance.net/projects/404/95974e121862329.Y3JvcCw5MjIsNzIxLDAsMTM5.png" alt="noCartImage" />
+                    
                     </div>
                 </div>
-                <div>
-                    <h3>Products You Might Like</h3>
-                    <h3>Top Deals</h3>
-                </div>
+               
             </div>
+           
+            <div>Check the items below or <span style={{color:"blue"}}> <Link to="/dogs"> continue shopping</Link> </span></div>
         </div>
     )
 }

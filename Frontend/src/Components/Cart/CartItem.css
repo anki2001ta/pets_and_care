@@ -5,28 +5,35 @@
     font-size: 16px;
     border-bottom: 1px solid grey;
     margin-bottom: 12px;
+    
 }
 .CartItem>div:nth-child(1){
     display: grid;
     place-items: center;
 }
 .CartItem>div:nth-child(1)>div img{
-    width: 100%;
-    height: 100%;
+    width: 120px;
+    height: 120px;
 
 }
 
 .CartItem>div:nth-child(2)>div:nth-child(1){
-    font-size: 1.05rem;
+    font-size: 1.10rem;
     font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+    
 }
 
 .CartItem>div:nth-child(2)>div:nth-child(2)>div:nth-child(2)>span:nth-child(1){
 font-weight: bold;
+text-align: left;
+
 }
 .CartItem>div:nth-child(2)>div:nth-child(2)>div:nth-child(2)>span:nth-child(2){
 text-decoration: line-through;
-color: gray
+color: gray;
+text-align: left;
 }
 .CartItem>div:nth-child(2)>div:nth-child(2)>div:nth-child(2)>span:nth-child(3){
     color:green;

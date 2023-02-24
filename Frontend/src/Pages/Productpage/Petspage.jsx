@@ -129,7 +129,7 @@ const Petspage = () => {
                     role="button"
                     onClick={handlerefreash}
                   >
-                    REsET
+                    RESET
                   </button>
                 </Stack>
               </RadioGroup>
@@ -144,13 +144,14 @@ const Petspage = () => {
                 <Center>
                   <Box className="productPage_product_side_loading">
                     <img
+                      style={{marginLeft:"320px",width:"450px",height:'280px'}}
                       id="loading"
                       src="https://cdn.svgator.com/images/2022/07/cute-animated-cat-tutorial.gif"
                       alt=""
                     />
                   </Box>
                 </Center>
-              ) :catData.length<=0?(<Center><img  src="https://cdn.dribbble.com/userupload/2905383/file/original-4ea237e94e803ddd575a66eb32198899.png?compress=1&resize=700x600&vertical=top"/></Center>): (
+              ) :catData.length<=0?(<Center><img id="no_data"style={{marginLeft:"500px",width:"100%",height:'100%'}}  src="https://cdn.dribbble.com/userupload/2905383/file/original-4ea237e94e803ddd575a66eb32198899.png?compress=1&resize=700x600&vertical=top"/></Center>): (
                 catData?.map((item, ind) => (
                   <Box
                     key={ind}

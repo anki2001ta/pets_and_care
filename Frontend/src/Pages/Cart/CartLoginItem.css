@@ -1,7 +1,9 @@
 .CartLoginitems{
     width: 100%;
-    background-color: #f6f6f7;
+    /* background-color: #f6f6f7; */
     box-sizing: border-box;
+    
+   
 }
 .CartLoginitems>div{
     width: 95%;
@@ -12,8 +14,11 @@
 
 }
 .CartLoginitems>div>div:nth-child(1)>div:nth-child(1){
-    font-size: 25px;
+    font-size: 19px;
+    color: rgb(16, 16, 15);
     font-weight: bold;
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 .CartLoginitems>div>div:nth-child(2){
@@ -21,12 +26,14 @@
   display: flex;
   padding: 20px;
   box-sizing: border-box;
+  
 }
 .CartLoginitems>div>div:nth-child(2)>div:nth-child(2){
-    width: 100%;
+    width: 94%;
+   
 }
 .CartLoginitems>div>div:nth-child(2)>div:nth-child(2)>div{
-    width: 100%;
+    width: 94%;
 }
 .CartLoginitems>div>div:nth-child(2)>div:nth-child(1){
     width: 60%;
@@ -35,8 +42,8 @@
     width: 40%;
 }
 .CartLoginitems .basket{
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    padding: 15px;
+   
+    padding: 12px;
 }
 .CartLoginitems .basket>div:nth-child(1){
     display: flex;
@@ -62,14 +69,14 @@
 }
 .PaymentButton button{
     width: 50%;
-    color: white;
     font-size: .9rem;
     padding: 10px 30px;
     background-color:
-    #008ecc;
+    #f7c719;
+    color:black;
     border: none;
     border-radius: 5px;
-    border: 2px solid black;
+   
 }
 
 @media all and (max-width:727px){
@@ -88,4 +95,16 @@
         width: 100%;
         margin: auto;
     }
+    .PaymentButton button{
+        width: 50%;
+        font-size: 14px;
+        padding: 10px 30px;
+        background-color:
+        #f7c719;
+        color:black;
+        border: none;
+        border-radius: 5px;
+       
+    }
+    
 }

@@ -10,7 +10,7 @@ const coupon = useSelector((store)=> store.coupon)
   const toast = useToast();
   const [promo, setPromo] = useState("");
   const handleDiscount = () => {
-    if (promo == "Masai40") {
+    if (promo == "Pets") {
       toast({
         title: "Coupon Applied",
         status: "success",
@@ -26,8 +26,8 @@ const coupon = useSelector((store)=> store.coupon)
   return (
     <div className="ApplyCoupon">
       <div>
-        <span>Apply Coupon</span>
-        <span>VIEW ALL</span>
+        <span id="coupon">Apply Coupon</span>
+       
       </div>
       <div>
         <div>
@@ -41,7 +41,8 @@ const coupon = useSelector((store)=> store.coupon)
             onChange={(e) => setPromo(e.target.value)}
             placeholder="Enter Coupon Code"
           />
-          <button onClick={handleDiscount}>Apply</button>
+          <button style={{ color:"green"
+            }} onClick={handleDiscount}>Apply</button>
         </div>
       </div>
       <hr />
