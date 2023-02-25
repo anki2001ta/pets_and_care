@@ -10,6 +10,7 @@ import { PaymentDetils } from "../../Components/Cart/PaymentDetils";
 import axios from "axios";
 import { AddToCart } from "../../Redux/AppReducer/Action";
 import Navbar from "../Navbar";
+import Footer from "../Footer";
 export const CartLoginItems = () => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
@@ -65,7 +66,7 @@ export const CartLoginItems = () => {
             <div className="basket">
               <div>
                 <div style={{color:"red"}}>
-                  My Basket List
+                  My Pets
                 </div>
                 <div>₹ {price.toFixed(2)}</div>
               </div>
@@ -103,6 +104,7 @@ export const CartLoginItems = () => {
         </div>
       </div>
     </div>
+    <Footer/>
     </Box>
   );
 };
