@@ -33,7 +33,7 @@ export const Address = () => {
         <div>
           <div className='basket'>
             <div>
-              <div>Groceries Basket <span>{`(${cart.length} items)`}</span></div>
+              <div>My Purchase  <span>{`(${cart.length} items)`}</span></div>
               <div></div>
             </div>
             <div>

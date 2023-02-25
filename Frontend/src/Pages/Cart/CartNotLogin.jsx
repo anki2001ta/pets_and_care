@@ -1,5 +1,6 @@
 import React from 'react'
 import "../Cart/CartNoLogin.css"
+import Footer from '../Footer'
 export const CartNotLogin = () => {
     return (
         <div className="CartNoLogin" >
@@ -9,6 +10,9 @@ export const CartNotLogin = () => {
             <div>
                 <img src="https://mir-s3-cdn-cf.behance.net/projects/404/95974e121862329.Y3JvcCw5MjIsNzIxLDAsMTM5.png" alt="noCartImage" />
                 <p>Your Cart is empty!</p>
+            </div>
+            <div>
+            <Footer/>
             </div>
         </div>
     )

@@ -15,6 +15,8 @@ import ProtectedRoute from "../Pages/secured/ProtectedRoute";
 import { CartLoginItems } from "../Pages/Cart/CartLoginItems";
 import { PaymentPage } from "../Pages/Cart/PaymentPage";
 import AccountPage from "../Pages/Cart/UserAccount";
+import Admin from "../Pages/Admin/Admin";
+import AdminRoutes from "./AdminRoutes";
 
 const AllRoutes = () => {
   return (
@@ -27,6 +29,7 @@ const AllRoutes = () => {
       <Route path="/:pets" element={<Petspage />} />
       <Route path="/carepage" element={<Carepage />} />
       <Route path="/foodpage" element={<Foodspage />} />
+      <Route path="/admin/*" element={<AdminRoutes/>} />
       <Route path="/individualpage/:category/:id" element={<Indiividual />} />
       <Route
         path="/cart"

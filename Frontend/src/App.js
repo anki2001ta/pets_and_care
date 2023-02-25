@@ -6,6 +6,8 @@ import AllRoutes from './Routes/AllRoutes';
 import Navbar from './Pages/Navbar';
 import Mobile from './Pages/mobile';
 import { useEffect, useState } from 'react';
+import Cat from './Pages/Cat';
+
 
 function App() {
   const [size, setSize] = useState(window.innerWidth);
@@ -18,6 +20,7 @@ function App() {
     <div className="App">
        
      <AllRoutes/>
+     
     </div>
   );
 }
