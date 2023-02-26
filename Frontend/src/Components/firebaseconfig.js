@@ -99,6 +99,7 @@ const useFire = () => {
                   res.data.administration == true &&
                   res.data.token !== ""
                 ) {
+                  dispatch(PostUserSuccess({name:res.data.displayName,token:res.data.token}))
                   navigateUser("/admin");
                 } else {
                   toast({

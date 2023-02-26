@@ -57,8 +57,8 @@ const AccountPage = () => {
         <GridItem
           p={"25px"}
           borderRadius={"10px"}
-          w={{ lg: "80%", base: "95%" }}
-          h="240px"
+          w={{ lg: "98%", base: "95%" }}
+          h="300px"
           bg="#008ecc"
         >
           <Grid

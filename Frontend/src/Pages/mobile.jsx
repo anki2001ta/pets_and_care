@@ -21,7 +21,7 @@ const Mobile = () => {
         }    
     return (
         <Box zIndex={"999"} position={"sticky"} top={"0px"}>
-            <Flex color={"white"} backgroundColor={"blue.700"} h="auto" padding={5} justifyContent={'space-between'}>
+            <Flex color={"white"} backgroundColor={"#f7c719"} h="auto" padding={5} justifyContent={'space-between'}>
                 <Center fontWeight={'bold'} fontSize="20px">
                 <img
               style={{ height: "60px", width: "220px", marginRight: "90px" }}
@@ -38,6 +38,9 @@ const Mobile = () => {
                 placement='right'
                 onClose={onClose}
                 finalFocusRef={btnRef}
+                colorScheme='yellow'
+                backgroundColor="yellow"
+
             >
                 <DrawerOverlay />
                 <DrawerContent>

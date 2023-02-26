@@ -7,7 +7,6 @@ const Admin = () => {
     <Box>
         
         <AdminNavbar>
-           <h1>hii</h1>
 
         </AdminNavbar>
        

@@ -9,7 +9,6 @@ import {
   VStack,
   Icon,
   useColorModeValue,
-  Link,
   Drawer,
   DrawerContent,
   Text,
@@ -17,10 +16,12 @@ import {
   BoxProps,
   FlexProps,
   Menu,
+  Link,
   MenuButton,
   MenuDivider,
   MenuItem,
   MenuList,
+  Center,
 } from '@chakra-ui/react';
 import {
   FiHome,
@@ -33,26 +34,28 @@ import {
   FiChevronDown,
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
+import { RiLoginBoxFill } from 'react-icons/ri'
 import { ReactText } from 'react';
 import logo from "../../Resources/petlogo.png"
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 const LinkItems= [
     { name: 'ADMIN PANEL',style:"bold", text:"underline" },
-  { name: 'Dashboard', icon: FiHome },
-  { name: 'Profile', icon: FiTrendingUp },
-  
-  
-  { name: 'Management', icon: FiStar },
-  { name: 'Purchase History', icon: FiSettings },
+  { name: 'Dashboard', icon: FiHome,path:"/admin" },
+  { name: 'Profile', icon: FiTrendingUp ,path:"/admin/profile"},
+  { name: 'Management', icon: FiStar,path:"/admin/management" },
+  { name: 'Purchase History', icon: FiSettings,path:"/admin/purchase" },
   { name: 'PRODUCTS DATA',style:"bold", text:"underline"  },
-  { name: 'Pets', icon: FiCompass },
-  { name: 'Grooming', icon: FiCompass },
-  { name: 'Nourishment', icon: FiCompass },
+  { name: 'Pets', icon: FiCompass,path:"/admin/pets" },
+  { name: 'Grooming', icon: FiCompass ,path:"/admin/admingroom"},
+  { name: 'Nourishment', icon: FiCompass,path:"/admin/adminfood" },
 ];
 
 export default function ANavbar({
   children,
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
       <SidebarContent
@@ -82,6 +85,7 @@ export default function ANavbar({
 
 
 const SidebarContent = ({ onClose, ...rest }) => {
+  const Navigate=useNavigate();
   return (
     <Box
       transition="3s ease"
@@ -99,9 +103,12 @@ const SidebarContent = ({ onClose, ...rest }) => {
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
+        <Box onClick={()=>Navigate(link.path)}>
         <NavItem key={link.name} icon={link.icon} fontWeight={link.style==undefined?null:link.style} textDecoration={link.text==undefined?null:link.text} >
           {link.name}
+           
         </NavItem>
+       </Box>
       ))}
     </Box>
   );
@@ -141,8 +148,15 @@ const NavItem = ({ icon, children, ...rest }) => {
 };
 
 const MobileNav = ({ onOpen, ...rest }) => {
+  const navigate=useNavigate();
+  const handlelogout =()=>{
+    navigate("/login")
+  };
+
+  
+  const user = useSelector((store) => store.user);
   return (
-   
+    
     <Flex
       ml={{ base: 0, md: 60 }}
       px={{ base: 4, md: 4 }}
@@ -166,16 +180,11 @@ const MobileNav = ({ onOpen, ...rest }) => {
         fontSize="2xl"
         fontFamily="monospace"
         fontWeight="bold">
-        Logo
+        
       </Text>
 
       <HStack  spacing={{ base: '0', md: '6' }}>
-        <IconButton
-          size="lg"
-          variant="ghost"
-          aria-label="open menu"
-          icon={<FiBell />}
-        />
+        
         <Flex alignItems={'center'}>
           <Menu>
             <MenuButton
@@ -194,8 +203,8 @@ const MobileNav = ({ onOpen, ...rest }) => {
                   alignItems="flex-start"
                   spacing="1px"
                   ml="2">
-                  <Text fontSize="sm">Justina Clark</Text>
-                  <Text fontSize="xs" color="gray.600">
+                  <Text fontSize="sm">{user.name}</Text>
+                  <Text fontSize="xs" color="yellow.300">
                     Admin
                   </Text>
                 </VStack>
@@ -205,13 +214,13 @@ const MobileNav = ({ onOpen, ...rest }) => {
               </HStack>
             </MenuButton>
             <MenuList
-              bg={useColorModeValue('white', 'gray.900')}
-              borderColor={useColorModeValue('gray.200', 'gray.700')}>
-              <MenuItem>Profile</MenuItem>
-              <MenuItem>Settings</MenuItem>
-              <MenuItem>Billing</MenuItem>
+              bg={useColorModeValue('#fcd236', 'gray.900')}
+              borderColor={useColorModeValue('#fcd236','#fcd236')}>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+                <Center>
+              <MenuItem bgColor={"#fcd236"} onClick={handlelogout}>Log out
+              <RiLoginBoxFill/></MenuItem>
+              </Center>
             </MenuList>
           </Menu>
         </Flex>

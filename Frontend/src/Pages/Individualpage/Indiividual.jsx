@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { AddToCart, GetProductRequest, GetSingleSuccess } from '../../Redux/AppReducer/Action';
 import Navbar from '../Navbar'
-import { Box, Button, Flex,  Text, useToast } from '@chakra-ui/react';
+import { Box, Button, Flex,  SimpleGrid,  Text, useToast } from '@chakra-ui/react';
 import Footer from '../Footer';
 import "./Individual.css"
 const Individual = () => {
@@ -69,14 +69,14 @@ const Individual = () => {
   return (
     <Box>
       <Navbar/>
-      <Box w={"75%"}  m={"auto"} h={"500px"} mt={"3%"}>
-        <Flex justifyContent={"space-evenly"}>
-          <Box w={"45%"} h={"370px"} >
+      <Box w={"95%"}  m={"auto"}  h={{ base: "800px",sm: "auto"}} mt={"3%"}>
+        <SimpleGrid columns={{ base: 1, md: 1, lg: 2 ,sm: 1}} >
+          <Box w={{ base: "98%", md: "80%", lg: "78%" }} h={{ base: "250px", md: "300px", lg: "360px",sm:"250px" }} ml={{ base: "0px", md: "0px", lg: "160px",sm:"0px" }} >
             <img id="single_img" src={indiData?.url} style={{width:"100%",height:"100%"}} alt="" />
             {/* add to the cart */}
             <Button mt={"10px"} w={"98%"} bgColor={"black"} color={"yellow.400"} onClick={handleCart}>ADD TO CART</Button>
           </Box>
-          <Box w={"45%"} h={"500px"} >
+          <Box  w={{ base: "98%", md: "80%", lg: "78%",sm:"98%" }} mt={{ base: "16%", md: "14%", lg: "auto", sm:"23%"}}  >
             <Box w={"95%"} h={"80px"}  m={"auto"} border={"0.5px solid grey"} textAlign={"justify"} borderRadius={"10px"} > 
              <Text ml={"10px"} fontSize={"18px"} fontWeight={"bold"}><span style={{color:"red", fontWeight:"bold",fontSize:"18px"}}>Name:</span>{indiData?.name}</Text>
              <Text ml={"10px"} fontSize={"18px"} fontWeight={"bold"}><span style={{color:"red", fontWeight:"bold",fontSize:"18px"}}>Price:</span>Rs.{indiData?.price}</Text>
@@ -102,7 +102,7 @@ const Individual = () => {
 
           </Box>
          
-        </Flex>
+        </SimpleGrid>
         
       </Box>
       <Footer/>

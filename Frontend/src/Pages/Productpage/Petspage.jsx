@@ -1,5 +1,5 @@
 import {
-  Box,
+  div,
   Button,
   Center,
   Flex,
@@ -8,6 +8,7 @@ import {
   RadioGroup,
   Stack,
   Tag,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -92,14 +93,14 @@ const Petspage = () => {
   }, [color, sort, page]);
 
   return (
-    <Box className="Product_page">
-      <Box>
+    <div className="Product_page">
+      <div>
         <Navbar />
-      </Box>
-      <Box className="Product_br">
-        <Box className="Product_g">
+      </div>
+      <div className="Product_br">
+        <div className="Product_g">
           <h3 id="title">SORTING</h3>
-          <Box className="functi">
+          <div className="functi">
             <h2 id="title2">SORT BY PRICES</h2>
             <button class="button-73" role="button" onClick={sortDataByDesc}>
               PRICE: HIGH TO LOW
@@ -107,13 +108,13 @@ const Petspage = () => {
             <button class="button-73" role="button" onClick={sortDataByAsc}>
               PRICE: LOW TO HIGH
             </button>
-          </Box>
+          </div>
           <h3 id="title" style={{ marginTop: "15px" }}>
             FILTERATION
           </h3>
-          <Box className="radio">
+          <div className="radio">
             <h2 id="title2">FILTER BY COLOR</h2>
-            <Box className="radio_gp">
+            <div className="radio_gp">
               <RadioGroup onChange={setColor} value={color}>
                 <Stack direction="column" gap={"5px"}>
                   <Radio value="White">White</Radio>
@@ -133,27 +134,27 @@ const Petspage = () => {
                   </button>
                 </Stack>
               </RadioGroup>
-            </Box>
-          </Box>
-        </Box>
-        <Box className="Product_gr">
+            </div>
+          </div>
+        </div>
+        <div className="Product_gr">
           <h3 id="title">PICK ME</h3>
-          <Center>
-            <Box className="product_list">
+         
+            <SimpleGrid columns={{ base: 1, md: 2, lg: 4 ,sm: 1}} className="product_list">
               {load === true ? (
                 <Center>
-                  <Box className="productPage_product_side_loading">
+                  <div className="productPage_product_side_loading">
                     <img
                       style={{marginLeft:"320px",width:"450px",height:'280px'}}
                       id="loading"
                       src="https://cdn.svgator.com/images/2022/07/cute-animated-cat-tutorial.gif"
                       alt=""
                     />
-                  </Box>
+                  </div>
                 </Center>
               ) :catData.length<=0?(<Center><img id="no_data"style={{marginLeft:"500px",width:"100%",height:'100%'}}  src="https://cdn.dribbble.com/userupload/2905383/file/original-4ea237e94e803ddd575a66eb32198899.png?compress=1&resize=700x600&vertical=top"/></Center>): (
                 catData?.map((item, ind) => (
-                  <Box
+                  <div
                     key={ind}
                     className="para"
                     h={"auto"}
@@ -246,11 +247,11 @@ const Petspage = () => {
                     >
                       VIEW ME
                     </button>
-                  </Box>
+                  </div>
                 ))
               )}
-            </Box>
-          </Center>
+            </SimpleGrid>
+          
           <Flex gap={"50px"} justifyContent={"center"} mt={"20px"}>
             <Center>
               <Button
@@ -275,12 +276,12 @@ const Petspage = () => {
               </Button>
             </Center>
           </Flex>
-        </Box>
-      </Box>
-      <Box>
+        </div>
+      </div>
+      <div>
         <Footer />
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };
 
