@@ -62,10 +62,11 @@ export default function Login() {
           isClosable: true,
         })}
       if(res.data.administration==false && res.data.token!==""){
-        dispatch(PostUserSuccess({name:res.data.displayName,token:res.data.token}))
+        dispatch(PostUserSuccess({name:res.data.displayName,token:res.data.token,admin:false}))
         navigateUser("/")
       }
       else if(res.data.administration==true && res.data.token!==""){
+        dispatch(PostUserSuccess({name:res.data.displayName,token:res.data.token,admin:true}))
         navigateUser("/admin")
       }
       else{

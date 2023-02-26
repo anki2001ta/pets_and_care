@@ -65,11 +65,13 @@
     width:98%;
     height:600px;
     display: flex;
+    
    
     gap:2px;
 }
 .products>.prd{
   width:35%;
+  
   
 }
 .products>.prd2{
@@ -187,4 +189,112 @@
   
   font-family:'Times New Roman', Times, serif
 
+ }
+ @media all and (max-width:766px) and (min-width:375px){
+  .graph_card{
+   
+    width:98%;
+    /* height: 400px; */
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    /* margin: auto; */
+    margin-top: 14px;
+   
+    gap:100px;
+    padding:35px
+    
+}
+.graph_card>div{
+  width:300px;
+  /* height:"95%"; */
+ 
+  
+}
+.graph_card>div{
+  width:300px;
+  height:400px
+  /* height:"95%"; */
+ 
+  
+}
+.text {
+ 
+  font-size: 14px;
+  
+ 
+}
+.prd2{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+ 
+ gap:15px
+  
+   
+}
+.text {
+ 
+  font-size: 14px;
+  
+ 
+}
+
+.products>.prd2{
+  width:70%; 
+
+  opacity: 1;
+}
+.products>.prd{
+  width:25%;
+ 
+  
+}
+ }
+
+ @media all and (max-width:1023px) and (min-width:767px){
+  .graph_card{
+   
+    width:98%;
+    /* height: 400px; */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: auto;
+    margin-top: 12px;
+   
+    gap:100px;
+    padding:40px;
+    
+}
+.graph_card>div{
+  width:300px;
+  height:400px;
+ 
+  /* height:"95%"; */
+ 
+  
+}
+.text {
+ 
+  font-size: 12px;
+  
+ 
+}
+.prd2{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+ 
+ gap:15px
+  
+   
+}
+
+.products>.prd2{
+  width:75%; 
+ 
+  opacity: 1;
+}
+.products>.prd{
+  width:25%;
+  
+  
+}
  }

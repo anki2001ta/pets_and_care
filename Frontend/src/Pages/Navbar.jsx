@@ -201,7 +201,7 @@ const Navbar = () => {
             <Link to="/foodpage">
               <h2>NURISHMENT</h2>
             </Link>
-            <h2>EXPLORE</h2>
+            
           </Flex>
         </Center>
         {/* </Box> */}
